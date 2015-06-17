@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'artists/index'
+
+  get 'artists/show'
+
   root 'home#index'
  
   get '/index', to: 'home#index'

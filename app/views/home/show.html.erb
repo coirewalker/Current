@@ -1,4 +1,9 @@
 <div>
+
+<%= @playlist.inspect %>
+
+<iframe src="https://embed.spotify.com/?uri=spotify:track:5JunxkcjfCYcY7xJ29tLai" frameborder="0" allowtransparency="true"></iframe>
+
 	<% @eligible_local_artist.each do |listing| %>
 		<h3><%= listing["Venue"]["Name"] %></h3>
 		<ol>
