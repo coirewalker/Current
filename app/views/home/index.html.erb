@@ -1,0 +1,12 @@
+
+<%= form_tag(show_path) do %>
+<h1>Four 440 Forty</h1>
+	<p>Hear local.  See local.  Tonight.
+	  <%= label_tag :users_zip %><br/>
+	   Zipcode:
+	  <%= text_field_tag :users_zip %>
+	</p>
+	<%= submit_tag 'Listen!' %>
+<% end %>
+
+<% link_to "Home", show_path %>
