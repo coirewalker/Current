@@ -1,7 +1,19 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  home: MyString
+  artist_name: MyString
+  song_name: MyString
+  album_name: MyString
+  venue_name: MyString
+  venue_location: MyString
+  venue_address: MyString
+  event_datetime: MyString
 
 two:
-  home: MyString
+  artist_name: MyString
+  song_name: MyString
+  album_name: MyString
+  venue_name: MyString
+  venue_location: MyString
+  venue_address: MyString
+  event_datetime: MyString

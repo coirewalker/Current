@@ -1,14 +1,17 @@
 <div>
+<%= @echo_nest.inspect %>
 
-<%= @playlist.inspect %>
+<%= @playlist %>
 
-<iframe src="https://embed.spotify.com/?uri=spotify:track:5JunxkcjfCYcY7xJ29tLai" frameborder="0" allowtransparency="true"></iframe>
 
-	<% @eligible_local_artist.each do |listing| %>
-		<h3><%= listing["Venue"]["Name"] %></h3>
+
+<!-- <iframe src="https://embed.spotify.com/?uri=spotify:track:5JunxkcjfCYcY7xJ29tLai" frameborder="0" allowtransparency="true"></iframe> -->
+
+	<% @playlist.each do |listing| %>
+		<h3><%= listing[:venue] %></h3>
 		<ol>
-			<% listing["Artists"].each do |artist| %>
-				<li><%= artist["Name"] %></li>
+			<% listing[:artists].each do |artist| %>
+				<li><%= artist[:name] %> | <%= artist[:song] %></li>
 			<% end %>
 		</ol>
 		<hr>
