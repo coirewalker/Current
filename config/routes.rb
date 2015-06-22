@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get '/index', to: 'home#index'
   post '/index', to: 'home#index'
 
-  get '/show', to: 'home#show'
+  get '/show/:zipcode', to: 'home#show'
   post '/show', to: 'home#show'
   
 
