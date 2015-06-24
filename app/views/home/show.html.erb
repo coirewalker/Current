@@ -1,19 +1,44 @@
-<!-- <div id="bg-img"></div>
- -->
+<head>
+	<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,100italic,300italic' rel='stylesheet' type='text/css'>
+</head>
 
-<div>
-	  <audio id="audioElement" src="/assets/Along-The-Coastline.mp3" cx="500px" cy="500px;"></audio>
-  <div id="graph" class="graph"></div>
-  <button onclick="document.getElementById('audioElement').play()">Play the Audio</button>
-  <button onclick="document.getElementById('audioElement').pause()">Pause the Audio</button>
-  <button onclick="document.getElementById('audioElement').volume+=0.1">Increase Volume</button>
-  <button onclick="document.getElementById('audioElement').volume-=0.1">Decrease Volume</button>
-</div>
+<div id="bg-img">
 
+<audio id="audioElement" autoplay src="/assets/Along-The-Coastline.mp3" type="audio.mp3" preload="auto"></audio>
+<div id="graph" style="z-index: 99;"></div>
 
+			<% @events.each do |event| %>
+			  <% event[:artists].each do |artist| %>
+			    <%= content_tag :h3, artist.name %>
+			      <% artist.songs.each do |song| %>
+			       
+			      <% end %>
+			    <p>playing tonight at: </p>
+			    <%= content_tag :h4, event[:venue].name %>
+			  <% end %>
+			<% end %>
 
+</div> 
 <footer>
-	<hr>
+	<div id="foot-wrapper">
+		<ul>
+			<li>
+				<button onclick="document.getElementById('audioElement').play()">Play</button>
+			</li>
+			<li>
+				<button onclick="document.getElementById('audioElement').pause()">Pause</button>
+			</li>
+			<li>
+				<button onclick="document.getElementById('audioElement').()">Skip</button>
+			</li>
 
-  <div id="logo-show"></div>
+		</ul>
+		<div id="logo-show"></div>	
+	</div>
+
+	<div id="volume-controls">
+		<button class="volume" onclick="document.getElementById('audioElement').volume+=0.1">Volume Up</button>
+	<button class="volume" onclick="document.getElementById('audioElement').volume-=0.1">Volume Down</button>
+	</div>
 </footer>
+    <!-- /bg-img-->
