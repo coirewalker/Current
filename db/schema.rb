@@ -11,18 +11,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150618164028) do
+ActiveRecord::Schema.define(version: 20150623202614) do
 
   create_table "artists", force: :cascade do |t|
-    t.string   "artist_name"
+    t.string   "name"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "jambase_id"
+    t.integer  "soundcloud_id"
+  end
+
+  create_table "songs", force: :cascade do |t|
     t.string   "song_name"
     t.string   "album_name"
-    t.string   "venue_name"
-    t.string   "venue_location"
-    t.string   "venue_address"
-    t.string   "event_datetime"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.integer  "artist_id"
+    t.string   "soundcloud_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.string   "stream_url"
+  end
+
+  create_table "venues", force: :cascade do |t|
+    t.string   "name"
+    t.string   "address"
+    t.string   "city"
+    t.string   "state"
+    t.string   "country"
+    t.string   "zipcode"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.integer  "jambase_id"
+    t.string   "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

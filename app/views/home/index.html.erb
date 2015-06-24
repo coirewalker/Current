@@ -1,14 +1,21 @@
-
-<%= form_tag(show_path) do %>
-<h1>Four 440 Forty</h1>
-	<p>Hear local.  See local.  Tonight.
-	  <%= label_tag :users_zip %><br/>
-	   Zipcode:
-	  <%= text_field_tag :users_zip %>
-	</p>
-	<%= submit_tag 'Listen!' %>
-<% end %>
+<head>
+	<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,100italic,300italic' rel='stylesheet' type='text/css'>
+</head>
 
 
 
-<% link_to "Home", show_path %>
+<video width="400" autoplay loop id="bgvid">
+<source src="/assets/bg-livelocal.mp4" type="video/mp4">
+</video>
+
+<div id="container">
+	<div id="logo"></div>
+	<div id="welcome">
+		<h2>Hear local music.  See local music.  Now.</h2>  
+		<%= form_tag(show_path) do %>
+		<%= text_field_tag :users_zip, nil, :placeholder => "enter your zipcode", class: "submit_field" %>
+		<p></p>
+		<%= submit_tag "listen", class: "submit_button" %>
+		<% end %>
+	</div>
+</div>

@@ -1,14 +1,22 @@
 
+   
 <html>
 <head>
-  <title>Livelocal</title>
+	<title>Current: live, local artists, tonight</title>
+	<!-- Latest compiled and minified CSS -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+	 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %> 
   <%= csrf_meta_tags %>
 </head>
+
 <body>
 
 <%= yield %>
 
+
 </body>
 </html>
+

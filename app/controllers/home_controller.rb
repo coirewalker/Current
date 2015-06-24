@@ -1,7 +1,3 @@
-require 'uri'
-require 'net/http'
-require 'json'
-
 class HomeController < ApplicationController
 
 	def home
@@ -13,19 +9,18 @@ class HomeController < ApplicationController
 		# @player = SoundCloud.get_artist("beck")
 	end
 
-
-private
-
-	# def get_echo_artist(artist) 
-	# #puts jambase artist name into echo nest api search
-	# 	uri = URI("http://developer.echonest.com/api/v4/playlist/static?api_key=GY2PWSC90XLRX2SNR&artist=#{CGI::escape artist}&format=json&results=20&type=artist")
-	# 	begin
-	# 		response = JSON.parse(Net::HTTP.get(uri))
-	# 		response["response"]["songs"][0]["title"]
-	# 	rescue
-	# 		"There was a problem"
-	# 	end
-
-	# end
+	# def create_playlist
+ #  # @track = @get_artist.find_by(params(artist [:name], event[:venue]))
+ #  track = @get_artist.first
+ #  if @track.blank?
+ #    respond_to do |format|
+ #    format.html { redirect_to root_path, notice:'There was a problem creating your playlist.  Please try again later :(' }
+ #    end 
+ #  else
+ #    @track.save 
+ #    respond_to do |format|
+ #      format.html { redirect_to show_path,notice: 'Your playlist of local music was successfully created :)' }
+ #    end
+ # end
 
 end
