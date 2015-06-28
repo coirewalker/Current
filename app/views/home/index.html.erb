@@ -1,22 +1,23 @@
 <head>
-	<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,100italic,300italic' rel='stylesheet' type='text/css'>
+	
 </head>
 
 
 
 <video width="400" autoplay loop id="bgvid">
-<source src="/assets/bg-livelocal.mp4" type="video/mp4">
+	<source src="/assets/bg-livelocal.mp4" type="video/mp4">
 </video>
 
-<div id="container">
+<div id="welcome_wrapper">
 	<div id="logo"></div>
 	<div id="welcome">
-		<h2>Hear local music.  See local music.  Now.</h2>  
+		<h2>local, live, artist radio.</h2>  
+		<br>
 		<%= form_tag(show_path) do %>
 		<%= text_field_tag :users_zip, nil, :placeholder => "enter your zipcode", class: "submit_field" %>
 		<p></p>
-		<%= submit_tag "listen", class: "submit_button" %>
-		<% end %>
+		<%= submit_tag "listen", class: "submit_button_home" %>
+		<% end %>	
 	</div>
-	<p class="slogan">Streaming music by artists performing in your neighborhood.   Tonight!</p>
+	<div id="pitch"><h3>Current streams music from artists performing in your neighborhood, tonight!</h3></div>
 </div>

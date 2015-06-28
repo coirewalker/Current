@@ -1,6 +1,10 @@
 class SoundCloud
 
-	def self.get_artist_tracks(artist, track_count=3)
+	CLIENT = Soundcloud.new(:client_id => 'ddac1035019e721df71b51a0e6d38a7f',
+                        :client_secret => '2bc60eb40dc4943293c3d1486fe0989a',
+                        :redirect_uri => 'http://example.com/callback')
+
+	def self.get_artist_tracks(artist, track_count=1)
 		puts "Artist is #{artist}"
 		query = URI.encode(artist.name)
 		uri = URI.parse("http://api.soundcloud.com/tracks.json?q=#{query}&limit=#{track_count}")
@@ -21,14 +25,10 @@ class SoundCloud
 		#id = response[0]["id"]
 	end
 
-	# def something
-	# 		@songs.map do |song|
-	# 		@song = Song.find_by(params: soundcloud_id)
-	# 			unless @song
-	# 				@song = Song.create(
-	# 					ERROR: flying too close to the sun....
-	# 					)
-	# 	end
-	# end
+	def self.get_song_location(song)
+		response = CLIENT.get(song.stream_url, :allow_redirects => true)
+		
+	end
+
 
 end

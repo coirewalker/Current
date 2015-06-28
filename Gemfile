@@ -27,6 +27,7 @@ gem 'json'
 gem 'rest-client'
 gem 'rspotify'
 gem 'httparty'
+gem 'soundcloud'
 # gem 'bootstrap-sass'
 
 
