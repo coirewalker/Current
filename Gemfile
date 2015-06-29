@@ -28,6 +28,7 @@ gem 'rest-client'
 gem 'rspotify'
 gem 'httparty'
 gem 'soundcloud'
+gem 'validates_zipcode'
 # gem 'bootstrap-sass'
 
 

@@ -1,12 +1,13 @@
-<head>
-	
-</head>
-
-
-
 <video width="400" autoplay loop id="bgvid">
-	<source src="/assets/bg-livelocal.mp4" type="video/mp4">
+	<source src="/assets/current-homepage.mp4" type="video/mp4">
 </video>
+
+
+<!-- <div id="load_screen_div">
+	<div id="load_gif"></div>
+	<h1>Current is gathering local music for you...</h1>
+</div> end loading div --> 
+
 
 <div id="welcome_wrapper">
 	<div id="logo"></div>
@@ -14,10 +15,11 @@
 		<h2>local, live, artist radio.</h2>  
 		<br>
 		<%= form_tag(show_path) do %>
-		<%= text_field_tag :users_zip, nil, :placeholder => "enter your zipcode", class: "submit_field" %>
+		<%= text_field_tag :users_zip, nil, :placeholder => "enter your zipcode", class: "submit_field", required: true %>
 		<p></p>
 		<%= submit_tag "listen", class: "submit_button_home" %>
 		<% end %>	
 	</div>
 	<div id="pitch"><h3>Current streams music from artists performing in your neighborhood, tonight!</h3></div>
 </div>
+

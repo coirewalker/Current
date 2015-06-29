@@ -15,7 +15,7 @@
 
 @media screen and (max-device-width: 800px) {
 	body { 
-		background: url(bg-image.jpg) #000 no-repeat center center fixed; 
+		background: url(bg-image.png) #000 no-repeat center center fixed; 
 	}
 
 	#bgvid { 
@@ -172,6 +172,38 @@ body{
 
 /** ===================================== SHOW ============================================ **/
 
+/** load screen attempt... **/
+/*#load_screen_div {
+  margin: 0;
+  padding: 0;
+  height: 1200px;
+  width: 2000px;
+  background-color: #141414;
+}
+
+.hidden {
+  display: none;
+}
+
+#load_screen_div h1 {
+  margin-top: 45vh;
+  text-align: center;
+}
+
+#load_gif {
+  background-image: url(/assets/load.gif) no-repeat center;
+  background-size: contain;
+  z-index: 99;
+}
+*/
+
+#soundcloud_widget {
+  position: fixed;
+  bottom: 35px;
+  left: 20px;
+  z-index: 99;
+}
+
 .play_button_show {
   padding: 4px 8px;
   border: 1px solid white !important;
@@ -235,7 +267,7 @@ body{
 
 #submit_div_show {
   position: absolute;
-  left: 40px;
+  right: 90px;
   bottom: 65px;
 }
 
@@ -261,6 +293,10 @@ body{
 }
 
 .submit_field:hover, .submit_field_show:hover {
+  border: 1px solid rgba(211, 22, 79, .5);
+}
+
+.submit_field:focus, .submit_field_show:focus {
   border: 1px solid rgba(211, 22, 79, .5);
 }
 

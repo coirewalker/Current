@@ -1,24 +1,68 @@
+ <script>
+  function scUrl(trackId) {
+     return "http://w.soundcloud.com/player/?url=https://api.soundcloud.com/tracks/" + trackId.toString() + "&show_artwork=false&liking=false&sharing=false&auto_play=true"
+    }
+  function scTrackUrl(trackId) {
+     return "https://api.soundcloud.com/tracks/" + trackId.toString()
+    }
+  var scTracks = [139587189, 48395995, 48395993, 48395998];
+  var trackCount = 0;
+  $(document).ready(function() {
+   
+    var widget = SC.Widget(document.getElementById('soundcloud_widget'));
+    
+    widget.bind(SC.Widget.Events.FINISH, function() {
+      console.log('Song Finished');
+      widget.load(scTrackUrl(scTracks[trackCount]), {auto_play: true});
+      // $('#soundcloud_widget').attr('src', scUrl(scTracks[trackCount]));
+        if (trackCount <= (scTracks.length - 1))  {
+          trackCount++;
+          console.log("Track count is now: " + trackCount)
+        } 
+        else {
+           trackCount = 0;
+        }
+        // widget.seekTo(0);
+        // widget.play(); 
+    });
+   widget.bind(SC.Widget.Events.READY, function() {
+     console.log('Ready...');
+   });
+   $('button').click(function(e) {
+     e.preventDefault();
+     widget.next();
+   });
+ });
+</script>
+
+<div id="now-playing">
+<% @events = @events.slice(0, 1) %>
+<% @events.each do |event| %>
+<% event[:artists].each do |artist| %>
+  <%= content_tag :h4, artist.name %>
+   <% artist.songs.each do |song| %>
+     <%= content_tag :h4, "Your listening to #{song.song_name}" %>
+    <p><%= song.sc_player.html_safe %></p>
+   <% end %>
+<%= content_tag :h5, "playing tonight at: #{event[:venue].name}" %>
+<% end %>
+<% end %>
+</div>
+
+
 <div id="dots"><!-- pixel grid overlay div -->
- <div class="container">
-	<ul class="slideshow">
-	  <li><span></span></li>
-	  <li><span></span></li>
-	  <li><span></span></li>
-	  <li><span></span></li>
-	  <li><span></span></li>
-	  <li><span></span></li>
-	</ul>
-</div>
-</div>
-
-<div id="main">
-	
-	<div id="control_buttons">
-		<ul><li><button class="play_button_show">play / pause</button></li></ul>	
+	<div class="container">
+		<ul class="slideshow">
+		  <li><span></span></li>
+		  <li><span></span></li>
+		  <li><span></span></li>
+		  <li><span></span></li>
+		  <li><span></span></li>
+		  <li><span></span></li>
+		</ul>
 	</div>
-</div>
-
-<div id="ball-wrapper">
+</div><!-- end overlay -->
+<div id="ball-wrapper"><!-- right side pillar swirls -->
 	<ul>
 		<li>
 			<div class="ball-container">
@@ -134,8 +178,20 @@
 		</li>
 	</ul>
 </div><!-- end ball wrapper -->
-<iframe id="soundcloud_widget"
-    src="http://w.soundcloud.com/player/?url=https://api.soundcloud.com/tracks/39804767&show_artwork=false&liking=false&sharing=false&auto_play=true"width="120"height="60"frameborder="no"></iframe>
+
+
+
+	<!-- working ScPlayer -->
+	<iframe id="soundcloud_widget"
+	    src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/#{self.soundcloud_id}&amp;auto_play=true&amp;hide_related=true&amp;show_comments=true&amp;show_user=false&amp;show_reposts=false&amp;visual=false"
+	    width="350"
+	    height="70"
+	    frameborder="no"></iframe>
+	    <br>
+	<button>Play / Pause</button>
+
+
+
 <footer>
 	<div id="logo_div">
 		<div id="logo_show"></div>
@@ -151,20 +207,28 @@
 	<div id="slogan"><h4>live, local, artist radio</h4></div>
 </footer>
 
-<!-- old controls: -->
- <!-- <button onclick="document.getElementById('audioElement').play()">Play</button></li>
-		<li><button onclick="document.getElementById('audioElement').pause()">Pause</button></li>
-		<li><button onclick="document.getElementById('audioElement').()">Skip</button> -->
-<!-- <div id="volume-controls">
-	<button class="volume" onclick="document.getElementById('audioElement').volume+=0.1">Volume Up</button>
-	<button class="volume" onclick="document.getElementById('audioElement').volume-=0.1">Volume Down</button>
-</div> -->
 
+<!-- old controls: -->
+<!--  <button onclick="document.getElementById('audioElement').play()">Play</button></li>
+		<li><button onclick="document.getElementById('audioElement').pause()">Pause</button></li>
+		<li><button onclick="document.getElementById('audioElement').()">Skip</button>
+ -->
 <!-- old soundcloud widget -->
 <!-- <object height="100px" width="100px" id="myPlayer" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000">
   <param name="movie" value="http://player.soundcloud.com/player.swf?url=http%3A%2F%2Fsoundcloud.com%2Fmatas%2Fhobnotropic&enable_api=true&object_id=myPlayer"></param>
   <param name="allowscriptaccess" value="always"></param>
   <embed allowscriptaccess="always" height="40px" width="400px" src="http://player.soundcloud.com/player.swf?url=http%3A%2F%2Fsoundcloud.com%2Fmatas%2Fhobnotropic&enable_api=true&object_id=myPlayer" type="application/x-shockwave-flash" width="100%" name="myPlayer"></embed>
 </object> -->
+
+
+		<!-- <div id="control_buttons">
+			<ul><li><button class="play_button_show">play / pause</button></li></ul>	
+		</div>
+	</div> -->
+
+	<!-- other old SC widget -->
+	<!-- <iframe id="soundcloud_widget"
+    src="http://w.soundcloud.com/player/?url=https://api.soundcloud.com/tracks/39804767&show_artwork=false&liking=false&sharing=false&auto_play=true"width="70"height="40"frameborder="no"></iframe> -->
+
 
 	
