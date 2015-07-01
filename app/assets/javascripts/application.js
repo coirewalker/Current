@@ -48,7 +48,48 @@ $(document).ready(function () {
  //  $("#slogan").hide().fadeIn(4000);
  //  $("#now-playing").hide().fadeIn(4000);
 
-});
+	});
+
+
+ // function scUrl(trackId) {
+ //       return "http://w.soundcloud.com/player/?url=https://api.soundcloud.com/tracks/" + trackId.toString() + "&show_artwork=false&liking=false&sharing=false&auto_play=true"
+ //      }
+ //    function scTrackUrl(trackId) {
+ //       return "https://api.soundcloud.com/tracks/" + trackId.toString()
+ //      }
+ //    var scTracks = [139587189, 48395995, 48395993, 48395998];
+ //    var trackCount = 0;
+ //    // $(document).ready(function() {
+     
+ //      var widget = SC.Widget(document.getElementById('soundcloud_widget'));
+      
+ //      widget.bind(SC.Widget.Events.FINISH, function() {
+ //        console.log('Song Finished');
+ //        widget.load(scTrackUrl(scTracks[trackCount]), {auto_play: true});
+ //        // $('#soundcloud_widget').attr('src', scUrl(scTracks[trackCount]));
+ //          if (trackCount <= (scTracks.length - 1))  {
+ //            trackCount++;
+ //            console.log("Track count is now: " + trackCount)
+ //          } 
+ //          else {
+ //             trackCount = 0;
+ //          }
+ //          // widget.seekTo(0);
+ //          // widget.play(); 
+ //      });
+
+ //     widget.bind(SC.Widget.Events.READY, function() {
+ //       console.log('Ready...');
+ //     });
+     
+ //     $('button').click(function(e) {
+ //       e.preventDefault();
+ //       widget.toggle();
+ //     });
+
+ //   // });
+
+
 
 
 

@@ -15,7 +15,7 @@ class JamBase
 		@events = self.fake_events["Events"]
 
 		@events.map do |event|
-			venue = Venue.find_by(jambase_id: event["Venue"]["Id"])
+			@venue = Venue.find_by(jambase_id: event["Venue"]["Id"])
 			unless @venue
 				@venue = Venue.create(
 						jambase_id: event["Venue"]["Id"],
@@ -30,7 +30,7 @@ class JamBase
 						longitude: event["Venue"]["Longitude"]
 					)
 			end
-			result = {venue: venue}
+			result = {venue: @venue}
 			
 			artists = event["Artists"].map do |artist|
 				@artist = Artist.find_by(jambase_id: artist["Id"])

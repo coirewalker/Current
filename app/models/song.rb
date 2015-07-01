@@ -11,3 +11,9 @@ class Song < ActiveRecord::Base
   end
 
 end
+
+# <iframe id="soundcloud_widget"
+# 	    src="http://w.soundcloud.com/player/?url=https://api.soundcloud.com/tracks/39804767&color=000000&show_artwork=false&liking=false&sharing=false&auto_play=true"
+# 	    width="350"
+# 	    height="70"
+# 	    frameborder="no"></iframe>

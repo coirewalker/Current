@@ -15,7 +15,7 @@
 
 @media screen and (max-device-width: 800px) {
 	body { 
-		background: url(bg-image.jpg) #000 no-repeat center center fixed; 
+		background: url(bg-image.png) #000 no-repeat center center fixed; 
 	}
 
 	#bgvid { 
@@ -29,9 +29,6 @@ textarea:focus,
 button:focus {
     outline: none;
 }
-
-
-
 
 
 
@@ -186,6 +183,30 @@ body{
   z-index: 9999;
 }
 
+/** load screen attempt... **/
+/*#load_screen_div {
+  margin: 0;
+  padding: 0;
+  height: 1200px;
+  width: 2000px;
+  background-color: #141414;
+}
+
+.hidden {
+  display: none;
+}
+
+#load_screen_div h1 {
+  margin-top: 45vh;
+  text-align: center;
+}
+
+#load_gif {
+  background-image: url(/assets/load.gif) no-repeat center;
+  background-size: contain;
+  z-index: 99;
+}
+*/
 
 .play_button_show {
   padding: 4px 8px;
@@ -280,6 +301,10 @@ body{
   border: 1px solid rgba(211, 22, 79, .5);
 }
 
+.submit_field:focus, .submit_field_show:focus {
+  border: 1px solid rgba(211, 22, 79, .5);
+}
+
 #logo_div {
     text-align: center;
 }
@@ -326,6 +351,7 @@ footer {
     background: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.96) 9%, rgba(0,0,0,0.85) 55%, rgba(0,0,0,0.71) 85%, rgba(0,0,0,0.58) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000', GradientType=0 );
     }
+
 
 /** ============================== animated balls ===================================**/
 
@@ -463,9 +489,6 @@ footer {
   50%  { transform: translate(-10px);  }
   100% { transform: translate(10px);   }
 }
-
-
-
 
 
 /** ==================================  Slideshow  =============================================== **/
