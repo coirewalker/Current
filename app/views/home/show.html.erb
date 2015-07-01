@@ -1,5 +1,5 @@
 <div id="dots"><!-- pixel grid overlay div -->
- <div class="container">
+<!--  <div class="container">
 	<ul class="slideshow">
 	  <li><span></span></li>
 	  <li><span></span></li>
@@ -8,163 +8,77 @@
 	  <li><span></span></li>
 	  <li><span></span></li>
 	</ul>
+</div> -->
 </div>
-</div>
-
 <div id="main">
-	
+
+	<div id="now-playing">
+		<% @events = @events.slice(0, 1) %>
+		<% @events.each do |event| %>
+			<% event[:artists].each do |artist| %>
+			  <%= content_tag :h4, artist[:artist].name %>
+			   <% artist[:artist].songs.each do |song| %>
+			     <%= content_tag :h4, "You're listening to #{song.song_name}" %>
+			    <!-- <p><%# song.sc_player.html_safe %></p> -->
+			   <% end %>
+				<%= content_tag :h5, "playing tonight at: #{event[:venue].name}" %>
+			<% end %>
+		<% end %>
+	</div>
+
+	<%= @location %>
+	<ul><li><a href="/" class="play_button_show">play / pause</a></li></ul>	
+	<iframe id="soundcloud_widget"
+    src="http://w.soundcloud.com/player/?url=https://api.soundcloud.com/tracks/<%= raw @tracks.first %>&show_artwork=false&liking=false&sharing=false&auto_play=true"width="340"height="65"frameborder="no"></iframe>
 	<div id="control_buttons">
-		<ul><li><button class="play_button_show">play / pause</button></li></ul>	
+		
 	</div>
 </div>
 
-<div id="ball-wrapper">
-	<ul>
-		<li>
-			<div class="ball-container">
-			  <div class="ball"></div>
-			  <div class="ball"></div>
-			  <div class="ball"></div>
-			  <div class="ball"></div>
-			  <div class="ball"></div>
-			  <div class="ball"></div>
-			  <div class="ball"></div>
-			  <div class="ball"></div>
-			  <div class="ball"></div>
-			</div>
-		</li>
-		<br>
-		<li>
-			<div class="ball-container">
-			  <div class="ball"></div>
-			  <div class="ball"></div>
-			  <div class="ball"></div>
-			  <div class="ball"></div>
-			  <div class="ball"></div>
-			  <div class="ball"></div>
-			  <div class="ball"></div>
-			  <div class="ball"></div>
-			  <div class="ball"></div>
-			  <div class="ball"></div><!-- red ball! -->
-			</div>
-		</li>
-		<br>
-		<li>
-			<div class="ball-container">
-			  <div class="ball"></div>
-			  <div class="ball"></div>
-			  <div class="ball"></div>
-			  <div class="ball"></div>
-			  <div class="ball"></div>
-			  <div class="ball"></div>
-			  <div class="ball"></div>
-			  <div class="ball"></div>
-			  <div class="ball"></div>
-			</div>
-		</li>
-		<br>
-		<li>
-			<div class="ball-container">
-			  <div class="ball"></div>
-			  <div class="ball"></div>
-			  <div class="ball"></div>
-			  <div class="ball"></div>
-			  <div class="ball"></div>
-			  <div class="ball"></div>
-			  <div class="ball"></div>
-			  <div class="ball"></div>
-			  <div class="ball"></div>
-			</div>
-		</li>
-		<br>
-		<li>
-			<div class="ball-container">
-			  <div class="ball"></div>
-			  <div class="ball"></div>
-			  <div class="ball"></div>
-			  <div class="ball"></div>
-			  <div class="ball"></div>
-			  <div class="ball"></div>
-			  <div class="ball"></div>
-			  <div class="ball"></div>
-			  <div class="ball"></div>
-			</div>
-		</li>
-		<br>
-		<li>
-			<div class="ball-container">
-			  <div class="ball"></div>
-			  <div class="ball"></div>
-			  <div class="ball"></div>
-			  <div class="ball"></div>
-			  <div class="ball"></div>
-			  <div class="ball"></div>
-			  <div class="ball"></div>
-			  <div class="ball"></div>
-			  <div class="ball"></div>
-			</div>
-		</li>
-		<br>
-		<li>
-			<div class="ball-container">
-			  <div class="ball"></div>
-			  <div class="ball"></div>
-			  <div class="ball"></div>
-			  <div class="ball"></div>
-			  <div class="ball"></div>
-			  <div class="ball"></div>
-			  <div class="ball"></div>
-			  <div class="ball"></div>
-			  <div class="ball"></div>
-			</div>
-		</li>
-		<br>
-		<li>
-			<div class="ball-container">
-			  <div class="ball"></div>
-			  <div class="ball"></div>
-			  <div class="ball"></div>
-			  <div class="ball"></div>
-			  <div class="ball"></div>
-			  <div class="ball"></div>
-			  <div class="ball"></div>
-			  <div class="ball"></div>
-			  <div class="ball"></div>
-			</div>
-		</li>
-	</ul>
-</div><!-- end ball wrapper -->
-<iframe id="soundcloud_widget"
-    src="http://w.soundcloud.com/player/?url=https://api.soundcloud.com/tracks/39804767&show_artwork=false&liking=false&sharing=false&auto_play=true"width="120"height="60"frameborder="no"></iframe>
+<%= render "ball" %>
+
 <footer>
 	<div id="logo_div">
 		<div id="logo_show"></div>
 	</div>
-
 	<div id="submit_div_show">
 		<%= form_tag(show_path) do %>
-			<%= text_field_tag :users_zip, nil, :placeholder => " new zipcode?", class: "submit_field_show" %>
+			<%= text_field_tag :users_zip, nil, :placeholder => " new zipcode?", class: "submit_field_show" %><br>
 			<%= submit_tag "listen", class: "submit_button_show" %>
 		<% end %>
 	</div>
-
 	<div id="slogan"><h4>live, local, artist radio</h4></div>
 </footer>
 
-<!-- old controls: -->
- <!-- <button onclick="document.getElementById('audioElement').play()">Play</button></li>
-		<li><button onclick="document.getElementById('audioElement').pause()">Pause</button></li>
-		<li><button onclick="document.getElementById('audioElement').()">Skip</button> -->
-<!-- <div id="volume-controls">
-	<button class="volume" onclick="document.getElementById('audioElement').volume+=0.1">Volume Up</button>
-	<button class="volume" onclick="document.getElementById('audioElement').volume-=0.1">Volume Down</button>
-</div> -->
+<script>
+	var scTracks = <%= @tracks %>;
+	var eventsTest = <%= raw @events.to_json %>
+	// var scTracksOld = [139587189, 48395995, 48395993, 48395998];
+	var trackCount = 1;
+	 
+	var widget = SC.Widget(document.getElementById('soundcloud_widget'));
 
-<!-- old soundcloud widget -->
-<!-- <object height="100px" width="100px" id="myPlayer" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000">
-  <param name="movie" value="http://player.soundcloud.com/player.swf?url=http%3A%2F%2Fsoundcloud.com%2Fmatas%2Fhobnotropic&enable_api=true&object_id=myPlayer"></param>
-  <param name="allowscriptaccess" value="always"></param>
-  <embed allowscriptaccess="always" height="40px" width="400px" src="http://player.soundcloud.com/player.swf?url=http%3A%2F%2Fsoundcloud.com%2Fmatas%2Fhobnotropic&enable_api=true&object_id=myPlayer" type="application/x-shockwave-flash" width="100%" name="myPlayer"></embed>
-</object> -->
+	widget.bind(SC.Widget.Events.FINISH, function() {
+	  console.log('Song Finished');
+	  widget.load(scTrackUrl(scTracks[trackCount]), {auto_play: true});
+	  // $('#soundcloud_widget').attr('src', scUrl(scTracks[trackCount]));
+	    if (trackCount <= (scTracks.length - 1))  {
+	      trackCount++;
+	      console.log("Track count is now: " + trackCount)
+	    } 
+	    else {
+	       trackCount = 0;
+	    }
+	    // widget.seekTo(0);
+	    // widget.play(); 
+	});
 
-	
+	widget.bind(SC.Widget.Events.READY, function() {
+	 console.log('Ready...');
+	});
+
+	$('.play_button_show').click(function(e) {
+	 e.preventDefault();
+	 widget.toggle();
+	});
+</script>

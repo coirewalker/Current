@@ -30,6 +30,11 @@ button:focus {
     outline: none;
 }
 
+
+
+
+
+
 /** ======================================= INDEX =========================================== **/
 
 h1, h2, h3, h4, h5, p {
@@ -170,7 +175,17 @@ body{
 
 
 
+
+
 /** ===================================== SHOW ============================================ **/
+
+#soundcloud_widget {
+  position: fixed;
+  bottom: 50px;
+  left: 20px;
+  z-index: 9999;
+}
+
 
 .play_button_show {
   padding: 4px 8px;
@@ -186,8 +201,9 @@ body{
 }
 
 .submit_button_show {
-  padding: 4px 6px;
-  margin-left: 5px;
+  padding: 6px 8px;
+  margin-top: 10px;
+  float: right;
   border: 1px solid white !important;
   border-radius: 100px;
   font-family: 'Lato 100', sans-serif;
@@ -223,20 +239,20 @@ body{
 .play_button_show {
   z-index: 99;
   position: fixed;
-  bottom: 65px;
-  right: 210px;
+  bottom: 60px;
+  left: 250px;
 }
 
-// #control_buttons {
-//  margin-top: -100px;
-//  position: relative;
-//  text-align: center;
-// }
+ #control_buttons {
+  margin-top: -100px;
+  position: relative;
+  text-align: center;
+ }
 
 #submit_div_show {
   position: absolute;
-  left: 40px;
-  bottom: 65px;
+  right: 125px;
+  bottom: 30px;
 }
 
 .submit_field {
@@ -286,11 +302,9 @@ body{
 }
 
 #now-playing {
-  position: absolute;
+/*  position: absolute;*/
   left: 30px;
   bottom: 70px;
-  width: 100px;
-  max-width: 100px;
 }
 
 footer {
@@ -312,8 +326,6 @@ footer {
     background: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.96) 9%, rgba(0,0,0,0.85) 55%, rgba(0,0,0,0.71) 85%, rgba(0,0,0,0.58) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000', GradientType=0 );
     }
-
-
 
 /** ============================== animated balls ===================================**/
 

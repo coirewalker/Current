@@ -38,7 +38,7 @@ class JamBase
 					@artist = Artist.create(name: artist["Name"], jambase_id: artist["Id"])
 					@artist.get_songs
 				end
-				@artist
+				{artist: @artist, song: @artist.songs.first}
 			end
 			result.merge(artists: artists)
 		end
