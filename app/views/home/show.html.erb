@@ -1,6 +1,6 @@
 
 <div id="dots"><!-- pixel grid overlay div -->
-<!--  <div class="container">
+ <div class="container">
 	<ul class="slideshow">
 	  <li><span></span></li>
 	  <li><span></span></li>
@@ -9,89 +9,37 @@
 	  <li><span></span></li>
 	  <li><span></span></li>
 	</ul>
-</div> -->
 </div>
-<div id="main">
-
-	<div id="now-playing">
-		<% @events = @events.slice(0, 1) %>
-		<% @events.each do |event| %>
-			<% event[:artists].each do |artist| %>
-			  <%= content_tag :h4, artist[:artist].name %>
-			   <% artist[:artist].songs.each do |song| %>
-			     <%= content_tag :h4, "You're listening to #{song.song_name}" %>
-			    <!-- <p><%# song.sc_player.html_safe %></p> -->
-			   <% end %>
-				<%= content_tag :h5, "playing tonight at: #{event[:venue].name}" %>
-			<% end %>
-		<% end %>
-	</div>
-
-<!-- 	<%= @location %>
-	<ul><li><a href="/" class="play_button_show">play / pause</a></li></ul>	
-	<iframe id="soundcloud_widget"
-    src="http://w.soundcloud.com/player/?url=https://api.soundcloud.com/tracks/<%= raw @tracks.first %>&show_artwork=false&liking=false&sharing=false&auto_play=true"width="340"height="65"frameborder="no"></iframe>
-	<div id="control_buttons">
-		
-	</div> -->
 </div>
+
+	<div id="soundcloud_container">
+		<iframe id="soundcloud_widget"
+    src="http://w.soundcloud.com/player/?url=https://api.soundcloud.com/tracks/<%= raw @tracks.first %>&show_artwork=false&liking=false&sharing=false&auto_play=true&visual=false&color=FE2E64" 
+    width="100%" 
+    height="100%" 
+    frameborder="no">
+  	</iframe>
+  </div>	
 
 <%= render "ball" %>
 
-//  <script>
-//   function scUrl(trackId) {
-//      return "http://w.soundcloud.com/player/?url=https://api.soundcloud.com/tracks/" + trackId.toString() + "&show_artwork=false&liking=false&sharing=false&auto_play=true"
-//     }
-//   function scTrackUrl(trackId) {
-//      return "https://api.soundcloud.com/tracks/" + trackId.toString()
-//     }
-//   var scTracks = [139587189, 48395995, 48395993, 48395998];
-//   var trackCount = 0;
-//   $(document).ready(function() {
-   
-//     var widget = SC.Widget(document.getElementById('soundcloud_widget'));
-    
-//     widget.bind(SC.Widget.Events.FINISH, function() {
-//       console.log('Song Finished');
-//       widget.load(scTrackUrl(scTracks[trackCount]), {auto_play: true});
-//       // $('#soundcloud_widget').attr('src', scUrl(scTracks[trackCount]));
-//         if (trackCount <= (scTracks.length - 1))  {
-//           trackCount++;
-//           console.log("Track count is now: " + trackCount)
-//         } 
-//         else {
-//            trackCount = 0;
-//         }
-//         // widget.seekTo(0);
-//         // widget.play(); 
-//     });
-//    widget.bind(SC.Widget.Events.READY, function() {
-//      console.log('Ready...');
-//    });
-//    $('button').click(function(e) {
-//      e.preventDefault();
-//      widget.next();
-//    });
-//  });
-// </script>
+  <div id="venue_div">
+  	<div id="location">Playing at: </div>
+  </div>   
 
-
-	<!-- working ScPlayer -->
-	<iframe id="soundcloud_widget"
-	    src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/#{self.soundcloud_id}&amp;auto_play=true&amp;hide_related=true&amp;show_comments=true&amp;show_user=false&amp;show_reposts=false&amp;visual=false"
-	    width="350"
-	    height="70"
-	    frameborder="no"></iframe>
-	    <br>
-	<button>Play / Pause</button>
 
 <footer>
 	<div id="logo_div">
 		<div id="logo_show"></div>
 	</div>
+<!-- 
+	<a id="play_button_show">pause</a>
+	<a id="skip_button_show">skip</a> -->
+
 	<div id="submit_div_show">
 		<%= form_tag(show_path) do %>
-			<%= text_field_tag :users_zip, nil, :placeholder => " new zipcode?", class: "submit_field_show" %><br>
+			<%= text_field_tag :users_zip, nil, :placeholder => " new zipcode?", class: "submit_field_show" %>
+			<br>
 			<%= submit_tag "listen", class: "submit_button_show" %>
 		<% end %>
 	</div>
@@ -99,12 +47,92 @@
 </footer>
 
 
+<!-- Soundcloud Player JS -->
 <script>
-	var scTracks = <%= @tracks %>;
-	var eventsTest = <%= raw @events.to_json %>
+	var scTracks = <%= @tracks %>
+	var eventsTest = <%= raw @events.to_json %>	
+
+///////////
+function getSongsFromEvents(events){
+    var evt, songs = [];
+    for(var i=0; i<events.length; i++){
+        evt = events[i];
+        for(var j=0; j<evt.artists.length; j++) {
+            var song = {
+                name: evt.artists[j].song.song_name,
+                album: evt.artists[j].song.album_name,
+                soundcloud_id: evt.artists[j].song.soundcloud_id,
+                artist: evt.artists[j].artist.name,
+                venue: evt.venue.name
+            };
+            if(song.artist) {
+                song.name = song.name
+                    .replace(song.artist.trim(), '')
+                    .replace(' :: ', ' ')
+                    .replace(' - ', ' ')
+                    .replace(' by ', ' ')
+                    .trim()
+                ;
+			}
+            songs.push(song);
+        }
+    }
+    return songs;
+}
+
+var songs = getSongsFromEvents(eventsTest);
+
+document.getElementById("location").innerHTML = songs[i].venue;
+////////////////
+
+
+	function fun(ReqTextbox) { 
+    var queueData = document.getElementById(ReqTextbox).value; 
+    document.getElementById('myAnchor').href = "servlet?variablename=" + queueData;
+    //some more code
+} 
+// var evnt, artistarray;
+
+// 	for(var i = 0; i < eventsTest.length; i++){
+//     evnt = eventsTest[i];
+//     for(var j = 0; j < evnt.artists.length; j++){
+//         artistarray = evnt.artists[j];
+//         console.log(artistarray.artist.name);
+//     }
+// 	}
+
+// 	var artistName = artistarray.artist.name; // ARTIST NAME
+
+
+// 	for(var i = 0; i < eventsTest.length; i++){
+//     evnt = eventsTest[i];
+//     for(var j = 0; j < evnt.artists.length; j++){
+//         artistarray = evnt.artists[j];
+//         console.log(artistarray.song.song_name);
+//     }
+// 	}
+// 	var songName = artistarray.song.song_name; // SONG NAME
+
+
+// 	for(var i = 0; i < eventsTest.length; i++){
+//     evnt = eventsTest[i];
+//     for(var j = 0; j < evnt.venue.length; j++){
+//         console.log(evnt.venue.name);
+//     }
+// 	}
+// 	var venueName = evnt.venue.name;	// VENUE NAME
+
+
+
+
+////////
+
+
+
+
+
 	// var scTracksOld = [139587189, 48395995, 48395993, 48395998];
 	var trackCount = 1;
-	 
 	var widget = SC.Widget(document.getElementById('soundcloud_widget'));
 
 	widget.bind(SC.Widget.Events.FINISH, function() {
@@ -116,31 +144,21 @@
 	      console.log("Track count is now: " + trackCount)
 	    } 
 	    else {
-	       trackCount = 0;
+	      trackCount = 0;
 	    }
 	    // widget.seekTo(0);
 	    // widget.play(); 
-	});
+	});	
 
 	widget.bind(SC.Widget.Events.READY, function() {
-	 console.log('Ready...');
+	  console.log('Ready...');
 	});
 
-	$('.play_button_show').click(function(e) {
-	 e.preventDefault();
-	 widget.toggle();
+	$('#play_button_show').click(function(e) {
+	  e.preventDefault();
+	  widget.toggle();
 	});
+
 </script>
 
 
-<!-- old controls: -->
-<!--  <button onclick="document.getElementById('audioElement').play()">Play</button></li>
-		<li><button onclick="document.getElementById('audioElement').pause()">Pause</button></li>
-		<li><button onclick="document.getElementById('audioElement').()">Skip</button>
- -->
-
-
-		<!-- <div id="control_buttons">
-			<ul><li><button class="play_button_show">play / pause</button></li></ul>	
-		</div>
-	</div> -->

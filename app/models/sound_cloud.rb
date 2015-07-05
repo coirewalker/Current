@@ -26,9 +26,13 @@ class SoundCloud
 	end
 
 	def self.get_song_location(song)
-		response = CLIENT.get(song.stream_url, :allow_redirects => true)
-		
+		response = CLIENT.get(song.stream_url, :allow_redirects => true)	
 	end
 
+	#trying to think through this thing...
+	# def playlist_parsed 
+	# 	song.select{ |x,y| } if x != null and y == soundcloud_id
+	# 	song == song_valid
+	# end
 
 end

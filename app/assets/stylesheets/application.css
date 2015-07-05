@@ -12,6 +12,7 @@
  *
  */
 
+/* =============== media queries ================ */
 
 @media screen and (max-device-width: 800px) {
 	body { 
@@ -23,12 +24,12 @@
 	}
 }
 
-input:focus,
-select:focus,
-textarea:focus,
-button:focus {
-    outline: none;
+@media screen and (max-device-width: 1035px) {
+  #soundcloud_container {
+    max-width: 200px;
+  }
 }
+
 
 
 
@@ -52,21 +53,26 @@ h3, h4, h5, p {
 ul, li {
   padding: 0;
 }
-// p {
-//   margin-top: 45px;
-//   text-align: center;
-// }
 
-body {
-	margin: 0;
-	padding: 0;
-	background-color: black;
+p {
+   margin-top: 45px;
+   text-align: center;
+ }
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
 }
 
 /** slideshow body CSS **/
 body{
+  margin: 0;
+  padding: 0;
+  background-color: black;
   font-family: "helvetica neue", helvetica;
-  background: #000;
+ /* background: #000; */
   font-weight: 400;
   font-size: 15px;
   overflow-y: scroll;
@@ -156,8 +162,8 @@ body{
 }
 
 .submit_button_home:hover {
-  border: 2px solid rgba(211, 22, 79, 1) !important;
-  color: rgba(211, 22, 79, 1) !important;
+  border: 2px solid rgba(255, 80, 25, 1) !important;
+  color: rgba(255, 131, 25, 1) !important;
   text-shadow: none;
   background: none !important;
   -webkit-opacity: 1;
@@ -176,39 +182,34 @@ body{
 
 /** ===================================== SHOW ============================================ **/
 
-#soundcloud_widget {
+#venue_div {
+  background-color: red;
+  height: 500px;
+  width: 500px;
+}
+
+#soundcloud_container {
+  width: 300px;
+  height: 100px;
   position: fixed;
-  bottom: 50px;
+  bottom: 20px;
   left: 20px;
   z-index: 9999;
 }
 
-/** load screen attempt... **/
-/*#load_screen_div {
-  margin: 0;
-  padding: 0;
-  height: 1200px;
-  width: 2000px;
-  background-color: #141414;
+#play_button_show {
+  position: absolute;
+  bottom: 400px;
+  left: 300px;
 }
 
-.hidden {
-  display: none;
+#skip_button_show {
+  position: absolute;
+  bottom: 350px;
+  left: 300px;
 }
 
-#load_screen_div h1 {
-  margin-top: 45vh;
-  text-align: center;
-}
-
-#load_gif {
-  background-image: url(/assets/load.gif) no-repeat center;
-  background-size: contain;
-  z-index: 99;
-}
-*/
-
-.play_button_show {
+#play_button_show, #skip_button_show {
   padding: 4px 8px;
   border: 1px solid white !important;
   border-radius: 100px;
@@ -221,9 +222,14 @@ body{
   text-shadow: 0px 1px 5px rgba(000,000,000, .6);
 }
 
+#play_button_show a, #skip_button_show a {
+  text-decoration: none;
+}
+
 .submit_button_show {
   padding: 6px 8px;
   margin-top: 10px;
+  margin-right: 45px;
   float: right;
   border: 1px solid white !important;
   border-radius: 100px;
@@ -234,9 +240,9 @@ body{
   background: none !important;
 }
 
-.play_button_show:hover, .submit_button_show:hover {
-  border: 1px solid rgba(211, 22, 79, .7) !important;
-  color: rgba(211, 22, 79, 1) !important;
+#play_button_show:hover, #skip_button_show:hover, .submit_button_show:hover {
+  border: 1px solid rgba(255, 80, 25, .7) !important;
+  color: rgba(255, 131, 25, 9) !important;
   text-shadow: none;
   box-shadow: none;
   background: none !important;
@@ -250,30 +256,17 @@ body{
     transition: all 300ms ease-in;  
 }
 
-#main {
-  display: block;
-  margin-top: 500px;
-  text-align: center;
-  z-index: 99;
-}
-
-.play_button_show {
-  z-index: 99;
-  position: fixed;
-  bottom: 60px;
-  left: 250px;
-}
-
+/*
  #control_buttons {
   margin-top: -100px;
   position: relative;
   text-align: center;
- }
+ }*/
 
 #submit_div_show {
   position: absolute;
   right: 125px;
-  bottom: 30px;
+  bottom: 45px;
 }
 
 .submit_field {
@@ -298,15 +291,15 @@ body{
 }
 
 .submit_field:hover, .submit_field_show:hover {
-  border: 1px solid rgba(211, 22, 79, .5);
+  border: 1px solid rgba(255, 80, 25, .5);
 }
 
 .submit_field:focus, .submit_field_show:focus {
-  border: 1px solid rgba(211, 22, 79, .5);
+  border: 1px solid rgba(255, 80, 25, .5);
 }
 
 #logo_div {
-    text-align: center;
+  text-align: center;
 }
 
 #logo_show {
@@ -327,19 +320,18 @@ body{
 }
 
 #now-playing {
-/*  position: absolute;*/
-  left: 30px;
-  bottom: 70px;
+  z-index: 9999;
+  margin: 0 auto;
 }
 
 footer {
   position: fixed;
   bottom: 0;
   width: 100%;
-  height: 130px;  
+  height: 140px;  
   margin-top: 20px; /** doesn't work **/
   z-index: 98;
-  // background: rgba(215, 44, 72, 1);
+  background: rgba(215, 44, 72, 1);
 
   /** footer gradient **/
       background: rgba(0,0,0,1);
@@ -353,7 +345,7 @@ footer {
     }
 
 
-/** ============================== animated balls ===================================**/
+/** ========================================== animated balls ================================================**/
 
 #ball-wrapper ul {
   display: block;
@@ -504,6 +496,7 @@ footer {
 .slideshow:after {
     content: '';
     background: transparent url(pattern.png) repeat top left;
+    z-index: 2;
 }
 .slideshow li span {
     width: 100%;

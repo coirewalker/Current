@@ -40,13 +40,13 @@ function scTrackUrl(trackId) {
 //= require_tree .
 $(document).ready(function () {
 
-	// $(".ball").hide().delay(4000).fadeIn(4500);
- //  // $(".play_button_show").hide().delay(5500).fadeIn(4000);
- //  $("footer").hide().delay(2000).fadeIn(4000);
- //  $("#soundcloud_widget").hide().delay(2000).fadeIn(4000);
- //  $("#new-zip").hide().delay(3500).fadeIn(4000);
- //  $("#slogan").hide().fadeIn(4000);
- //  $("#now-playing").hide().fadeIn(4000);
+	$(".ball").hide().delay(4000).fadeIn(4500);
+  // $(".play_button_show").hide().delay(5500).fadeIn(4000);
+  $("footer").hide().delay(2000).fadeIn(4000);
+  $("#soundcloud_widget").hide().delay(2000).fadeIn(4000);
+  $("#new-zip").hide().delay(3500).fadeIn(4000);
+  $("#slogan").hide().fadeIn(4000);
+  $("#now-playing").hide().fadeIn(4000);
 
 	});
 

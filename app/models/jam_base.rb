@@ -38,9 +38,15 @@ class JamBase
 					@artist = Artist.create(name: artist["Name"], jambase_id: artist["Id"])
 					@artist.get_songs
 				end
-				{artist: @artist, song: @artist.songs.first}
+				# set any artist without a song to nil
+				if @artist.songs.any?
+					{artist: @artist, song: @artist.songs.first}
+				else
+					nil
+				end
 			end
-			result.merge(artists: artists)
+			# remove any artists without a song from artists
+			result.merge(artists: artists.compact)
 		end
 	end
 
