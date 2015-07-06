@@ -12,38 +12,48 @@
 </div>
 </div>
 
-	<div id="soundcloud_container">
-		<iframe id="soundcloud_widget"
-    src="http://w.soundcloud.com/player/?url=https://api.soundcloud.com/tracks/<%= raw @tracks.first %>&show_artwork=false&liking=false&sharing=false&auto_play=true&visual=false&color=FE2E64" 
-    width="100%" 
-    height="100%" 
-    frameborder="no">
-  	</iframe>
-  </div>	
+
+		
 
 <%= render "ball" %>
 
-  <div id="venue_div">
+ <!--  <div id="venue_div">
   	<div id="location">Playing at: </div>
-  </div>   
+  </div>  -->  
 
 
 <footer>
-	<div id="logo_div">
-		<div id="logo_show"></div>
-	</div>
-<!-- 
-	<a id="play_button_show">pause</a>
-	<a id="skip_button_show">skip</a> -->
+	<!-- <div id="showthatmusic" style="color: white;"></div> -->
 
-	<div id="submit_div_show">
-		<%= form_tag(show_path) do %>
-			<%= text_field_tag :users_zip, nil, :placeholder => " new zipcode?", class: "submit_field_show" %>
-			<br>
-			<%= submit_tag "listen", class: "submit_button_show" %>
-		<% end %>
-	</div>
-	<div id="slogan"><h4>live, local, artist radio</h4></div>
+	<div id="footer_container">
+		<div id="soundcloud_container">
+			<iframe id="soundcloud_widget" 
+	    src="http://w.soundcloud.com/player/?url=https://api.soundcloud.com/tracks/<%= raw @tracks.first %>&show_artwork=false&liking=false&sharing=false&auto_play=true&visual=false&color=FE2E64" 
+	    width="100%" 
+	    height="100%" 
+	    frameborder="no"
+	   ></iframe>
+	  </div>
+		<div id="logo_container">
+			<div id="logo_show"></div>
+			<h4>live, local, artist radio</h4>
+		</div>
+	<!-- 
+		<a id="play_button_show">pause</a>
+		<a id="skip_button_show">skip</a> -->	
+		<div id="submit_container_show">
+			<%= form_tag(show_path) do %>
+				<ul>
+					<li>
+					<%= text_field_tag :users_zip, nil, :placeholder => " new zipcode?", class: "submit_field_show" %>
+					</li>
+					<li>
+						<%= submit_tag "listen", class: "submit_button_show" %>
+					</li>
+				</ul>
+			<% end %>
+		</div><!-- end submit_container_show -->
+	</div><!-- end footer_container -->
 </footer>
 
 
@@ -52,45 +62,78 @@
 	var scTracks = <%= @tracks %>
 	var eventsTest = <%= raw @events.to_json %>	
 
-///////////
-function getSongsFromEvents(events){
-    var evt, songs = [];
-    for(var i=0; i<events.length; i++){
-        evt = events[i];
-        for(var j=0; j<evt.artists.length; j++) {
-            var song = {
-                name: evt.artists[j].song.song_name,
-                album: evt.artists[j].song.album_name,
-                soundcloud_id: evt.artists[j].song.soundcloud_id,
-                artist: evt.artists[j].artist.name,
-                venue: evt.venue.name
-            };
-            if(song.artist) {
-                song.name = song.name
-                    .replace(song.artist.trim(), '')
-                    .replace(' :: ', ' ')
-                    .replace(' - ', ' ')
-                    .replace(' by ', ' ')
-                    .trim()
-                ;
-			}
-            songs.push(song);
-        }
-    }
-    return songs;
+// creates playlist data structure //
+function getSongsFromEvents(events) {
+  var evt, songs = [];
+  for(var i=0; i < events.length; i++){
+    evt = events[i];
+    for(var j=0; j < evt.artists.length; j++) {
+      var song = {
+        name: evt.artists[j].song.song_name,
+        album: evt.artists[j].song.album_name,
+        soundcloud_id: evt.artists[j].song.soundcloud_id,
+        artist: evt.artists[j].artist.name,
+        venue: evt.venue.name,
+        venue_url: evt.venue.url,
+        latitude: evt.venue.latitude,
+        longitude: evt.venue.longitude
+      };
+      if(song.artist) {
+        song.name = song.name
+          .replace(song.artist.trim(), '')
+          .replace(' :: ', ' ')
+          .replace(' - ', ' ')
+          .replace(' by ', ' ')
+          .trim();
+	}
+      songs.push(song);
+    	}
+  	}
+  return songs;    
 }
 
+// songs = playlist data //
 var songs = getSongsFromEvents(eventsTest);
 
-document.getElementById("location").innerHTML = songs[i].venue;
-////////////////
+
+// dynamically displayed venue name //
+// document.getElementById('showthatmusic').innerHTML = songs[5].venue;
 
 
-	function fun(ReqTextbox) { 
-    var queueData = document.getElementById(ReqTextbox).value; 
-    document.getElementById('myAnchor').href = "servlet?variablename=" + queueData;
-    //some more code
-} 
+// plays next song // 
+	var trackCount = 1;
+	var widget = SC.Widget(document.getElementById('soundcloud_widget'));
+
+	widget.bind(SC.Widget.Events.FINISH, function() {
+	  console.log('Song Finished');
+	  widget.load(scTrackUrl(scTracks[trackCount]), {auto_play: true});
+	  // $('#soundcloud_widget').attr('src', scUrl(scTracks[trackCount]));
+	    if (trackCount <= (scTracks.length - 1))  {
+	      trackCount++;
+	      console.log("Track count is now: " + trackCount)
+	    } 
+	    else {
+	      trackCount = 0;
+	    }
+	    // widget.seekTo(0);
+	    // widget.play(); 
+	});	
+
+	widget.bind(SC.Widget.Events.READY, function() {
+	  console.log('Ready...');
+	});
+
+	// $('#play_button_show').click(function(e) {
+	//   e.preventDefault();
+	//   widget.toggle();
+	// });
+
+
+// 	function fun(ReqTextbox) { 
+//     var queueData = document.getElementById(ReqTextbox).value; 
+//     document.getElementById('myAnchor').href = "servlet?variablename=" + queueData;
+//     //some more code
+// } 
 // var evnt, artistarray;
 
 // 	for(var i = 0; i < eventsTest.length; i++){
@@ -121,44 +164,10 @@ document.getElementById("location").innerHTML = songs[i].venue;
 //     }
 // 	}
 // 	var venueName = evnt.venue.name;	// VENUE NAME
-
-
-
-
-////////
-
-
-
-
-
-	// var scTracksOld = [139587189, 48395995, 48395993, 48395998];
-	var trackCount = 1;
-	var widget = SC.Widget(document.getElementById('soundcloud_widget'));
-
-	widget.bind(SC.Widget.Events.FINISH, function() {
-	  console.log('Song Finished');
-	  widget.load(scTrackUrl(scTracks[trackCount]), {auto_play: true});
-	  // $('#soundcloud_widget').attr('src', scUrl(scTracks[trackCount]));
-	    if (trackCount <= (scTracks.length - 1))  {
-	      trackCount++;
-	      console.log("Track count is now: " + trackCount)
-	    } 
-	    else {
-	      trackCount = 0;
-	    }
-	    // widget.seekTo(0);
-	    // widget.play(); 
-	});	
-
-	widget.bind(SC.Widget.Events.READY, function() {
-	  console.log('Ready...');
-	});
-
-	$('#play_button_show').click(function(e) {
-	  e.preventDefault();
-	  widget.toggle();
-	});
-
 </script>
+
+
+
+
 
 
