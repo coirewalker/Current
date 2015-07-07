@@ -1,8 +1,4 @@
 <video width="400" autoplay loop id="bgvid">
-<<<<<<< HEAD
-	<source src="/assets/bg-livelocal.mp4" type="video/mp4">
-</video>
-=======
 	<source src="/assets/current-homepage.mp4" type="video/mp4">
 </video>
 
@@ -12,19 +8,28 @@
 	<h1>Current is gathering local music for you...</h1>
 </div> end loading div --> 
 
->>>>>>> 20e2de82df9070616d26b4ddd78d8182c64672fc
-
-<div id="welcome_wrapper">
-	<div id="logo"></div>
-	<div id="welcome">
-		<h2>local, live, artist radio.</h2>  
-		<br>
-		<%= form_tag(show_path) do %>
-		<%= text_field_tag :users_zip, nil, :placeholder => "enter your zipcode", class: "submit_field", required: true %>
-		<p></p>
-		<%= submit_tag "listen", class: "submit_button_home" %>
-		<% end %>	
+<div id="homepage_container">
+	
+	<div id="logoo_container">
+		<div id="logo"></div>
 	</div>
-	<div id="pitch"><h3>Current streams music from artists performing in your neighborhood, tonight!</h3></div>
+	
+	<div id="welcome_container">
+		<div id="welcome">
+			<h2>local, live, artist radio.</h2>  
+			<br>
+			<%= form_tag(show_path) do %>
+			<%= text_field_tag :users_zip, nil, :placeholder => "enter your zipcode", class: "submit_field", required: true %>
+			<p></p>
+			<%= submit_tag "listen", class: "submit_button_home" %>
+			<% end %>	
+		</div>
+	</div>
+
+	<div id="pitch_container">
+		<div id="pitch"><h3>Current streams music from artists performing in your neighborhood, tonight!</h3>
+		</div>
+	</div>
+
 </div>
 

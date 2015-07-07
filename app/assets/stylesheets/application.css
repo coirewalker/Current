@@ -13,23 +13,6 @@
  */
 
 
-@media screen and (max-device-width: 800px) {
-	body { 
-		background: url(bg-image.png) #000 no-repeat center center fixed; 
-	}
-
-	#bgvid { 
-		display: none; 
-	}
-}
-
-input:focus,
-select:focus,
-textarea:focus,
-button:focus {
-    outline: none;
-}
-
 
 
 /** ======================================= INDEX =========================================== **/
@@ -52,21 +35,26 @@ h3, h4, h5, p {
 ul, li {
   padding: 0;
 }
-// p {
-//   margin-top: 45px;
-//   text-align: center;
-// }
 
-body {
-	margin: 0;
-	padding: 0;
-	background-color: black;
+p {
+   margin-top: 45px;
+   text-align: center;
+ }
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
 }
 
 /** slideshow body CSS **/
 body{
+  margin: 0;
+  padding: 0;
+  background-color: black;
   font-family: "helvetica neue", helvetica;
-  background: #000;
+ /* background: #000; */
   font-weight: 400;
   font-size: 15px;
   overflow-y: scroll;
@@ -84,23 +72,41 @@ body{
 	z-index: -100;
 	-webkit-transform: translateX(-50%) translateY(-50%);
 	transform: translateX(-50%) translateY(-50%);
-	// background: url(polina.jpg) no-repeat;
+	background: url(bg-image.jpg) no-repeat;
 	background-size: cover;
 	opacity: .7;
 }
 
-#welcome_wrapper {
+/* ==================== containers =================*/
+#homepage_container {
+  width: 50%;
 	margin-top: 29vh;
 	margin-left: auto;
 	margin-right: auto;
 }
 
-#welcome {
+#logoo_container, #welcome_container, #pitch_container {
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+}
+
+#logo {
+  background: url(current-logo-grey.png) no-repeat;
+  background-size: contain;
+  height: 150px;
+  width: 100%;
+  margin: 0px auto;
+  z-index: 99;
+  opacity: 1;
+}
+
+/*#welcome {
 	margin-top: 45px;
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center;
-}
+}*/
 
 #welcome h2 {
   margin-top: 0;
@@ -109,8 +115,8 @@ body{
 }
 
 #pitch {
-  position: relative;
-  bottom: -45px;
+/*  position: relative;*/
+/*  bottom: -45px;*/
   text-align: center;
   font-size: 1em;
   font-family: 'Lato 300', sans-serif;
@@ -118,9 +124,9 @@ body{
   text-shadow: 0px 0px 3px .6;
 }
 
-#main {
+/*#main {
   height: 60vh;
-}
+}*/
 
 #bg-img {
   background: url(bg-image.png) no-repeat center;
@@ -129,16 +135,6 @@ body{
   height: 700px;
   z-index: 97;
   opacity: 1;
-}
-
-#logo {
-	background: url(current-logo-grey.png) no-repeat;
-	background-size: contain;
-	height: 150px;
-	width: 420px;
-	margin: 0px auto;
-	z-index: 99;
-	opacity: 1;
 }
 
 .submit_button_home {
@@ -156,8 +152,8 @@ body{
 }
 
 .submit_button_home:hover {
-  border: 2px solid rgba(211, 22, 79, 1) !important;
-  color: rgba(211, 22, 79, 1) !important;
+  border: 2px solid #FE2E64 !important;
+  color: #FE2E64 !important;
   text-shadow: none;
   background: none !important;
   -webkit-opacity: 1;
@@ -171,60 +167,33 @@ body{
 }
 
 
+.submit_field {
+  width: 50%;
+  font-size: 1.4em;
+  padding: 6px;
+  text-align: center;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid white;
+  border-radius: 3px;
+  box-shadow: 0px 1px 5px rgba(000,000,000, .6);
+}
 
 
 
 /** ===================================== SHOW ============================================ **/
 
-#soundcloud_widget {
-  position: fixed;
-  bottom: 50px;
-  left: 20px;
-  z-index: 9999;
-}
-
-/** load screen attempt... **/
-/*#load_screen_div {
-  margin: 0;
-  padding: 0;
-  height: 1200px;
-  width: 2000px;
-  background-color: #141414;
-}
-
-.hidden {
-  display: none;
-}
-
-#load_screen_div h1 {
-  margin-top: 45vh;
-  text-align: center;
-}
-
-#load_gif {
-  background-image: url(/assets/load.gif) no-repeat center;
-  background-size: contain;
-  z-index: 99;
-}
-*/
-
-.play_button_show {
-  padding: 4px 8px;
-  border: 1px solid white !important;
-  border-radius: 100px;
-  font-family: 'Lato 100', sans-serif;
-  font-weight: 100;
-  font-size: 1em;
-  color: white !important;
-  background: none !important;
-  box-shadow: 0px 1px 5px rgba(000,000,000, .6);
-  text-shadow: 0px 1px 5px rgba(000,000,000, .6);
-}
+/*#venue_div {
+  background-color: red;
+  height: 500px;
+  width: 500px;
+}*/
 
 .submit_button_show {
   padding: 6px 8px;
   margin-top: 10px;
-  float: right;
+ /* margin-right: 45px;*/
+  text-align: center;
   border: 1px solid white !important;
   border-radius: 100px;
   font-family: 'Lato 100', sans-serif;
@@ -234,9 +203,9 @@ body{
   background: none !important;
 }
 
-.play_button_show:hover, .submit_button_show:hover {
-  border: 1px solid rgba(211, 22, 79, .7) !important;
-  color: rgba(211, 22, 79, 1) !important;
+.submit_button_show:hover {
+  border: 1px solid #FE2E64 !important;
+  color: #FE2E64 !important;
   text-shadow: none;
   box-shadow: none;
   background: none !important;
@@ -250,42 +219,6 @@ body{
     transition: all 300ms ease-in;  
 }
 
-#main {
-  display: block;
-  margin-top: 500px;
-  text-align: center;
-  z-index: 99;
-}
-
-.play_button_show {
-  z-index: 99;
-  position: fixed;
-  bottom: 60px;
-  left: 250px;
-}
-
- #control_buttons {
-  margin-top: -100px;
-  position: relative;
-  text-align: center;
- }
-
-#submit_div_show {
-  position: absolute;
-  right: 125px;
-  bottom: 30px;
-}
-
-.submit_field {
-	font-size: 1.4em;
-	padding: 6px;
-	text-align: center;
-	color: white;
-	background-color: rgba(255, 255, 255, 0.1);
-	border: 1px solid white;
-	border-radius: 3px;
-	box-shadow: 0px 1px 5px rgba(000,000,000, .6);
-}
 
 .submit_field_show {
   font-size: .8em;
@@ -298,22 +231,23 @@ body{
 }
 
 .submit_field:hover, .submit_field_show:hover {
-  border: 1px solid rgba(211, 22, 79, .5);
+  border: 1px solid #FE2E64;
 }
 
 .submit_field:focus, .submit_field_show:focus {
-  border: 1px solid rgba(211, 22, 79, .5);
+  border: 1px solid #FE2E64;
 }
 
-#logo_div {
-    text-align: center;
+#logo_container h4 {
+  margin: 0;
+  padding: 0;
+  text-align: center;
 }
 
 #logo_show {
-
   background: url(current-logo.png) no-repeat center;
   background-size: contain;
-  height: 100px;
+  height: 120px;
 }
 
 #slogan {
@@ -324,22 +258,61 @@ body{
 
 #slogan h4 {
   margin: 0;
+  padding: 0;
 }
 
 #now-playing {
-/*  position: absolute;*/
-  left: 30px;
-  bottom: 70px;
+  z-index: 9999;
+  margin: 0 auto;
+}
+
+/*========== containers ===========*/ 
+
+#soundcloud_container {
+  width: 25%;
+  height: 100px;
+  float: left;
+  margin-top: 25px;
+
+  margin-left: 5%;
+  z-index: 9999;
+}
+
+#logo_container {
+  width: 25%;
+  float: left;
+  margin-left: 8%;
+  padding-bottom: 15px;
+}
+
+#logo_container h4 {
+  margin-top: -25px;
+}
+
+#submit_container_show {
+  width: 20%;
+  float: left;
+  margin-top: 35px;
+  margin-left: 8%;
+}
+
+#submit_container_show ul {
+  text-align: center;
+}
+
+#footer_container {
+  height: 100px;
+  width: 100%;
 }
 
 footer {
   position: fixed;
   bottom: 0;
   width: 100%;
-  height: 130px;  
-  margin-top: 20px; /** doesn't work **/
+  height: 140px;  
+  padding-bottom: 35px; 
   z-index: 98;
-  // background: rgba(215, 44, 72, 1);
+  background: rgba(215, 44, 72, 1);
 
   /** footer gradient **/
       background: rgba(0,0,0,1);
@@ -353,7 +326,15 @@ footer {
     }
 
 
-/** ============================== animated balls ===================================**/
+/** ========================================== animated balls ================================================**/
+
+#ball-wrapper {
+  position: fixed;
+  right: 6%;
+  top: 0;
+  width: 0px;
+  z-index: 99;
+}
 
 #ball-wrapper ul {
   display: block;
@@ -363,19 +344,11 @@ footer {
   display: inline-block;
 }
 
-#ball-wrapper {
-  position: fixed;
-  right: 8%;
-  top: 0;
-  width: 0px;
-  z-index: 99;
-}
-
 #ball-container {
   float: right;
   width: 70px;
   height: 70px;
-  // display: inline-block;
+  display: inline-block;
 }
 
 .ball {
@@ -448,7 +421,7 @@ footer {
     }
     /** red ball! **/ 
      .ball:nth-child(10) {
-      background: rgba(215, 44, 71, 0.9);  
+      background: #FE2E64;  
       -webkit-animation: right .5s infinite ease-in-out;
       -moz-animation: right .5s infinite ease-in-out;
       animation: right .5s infinite ease-in-out;
@@ -504,6 +477,7 @@ footer {
 .slideshow:after {
     content: '';
     background: transparent url(pattern.png) repeat top left;
+    z-index: 2;
 }
 .slideshow li span {
     width: 100%;
@@ -722,4 +696,123 @@ footer {
   opacity: 1;
 }
 
- 
+
+
+
+
+/* =============== media queries ================ */
+
+@media screen and (max-width: 600px) {
+  body { 
+    background: url(bg-image.png) #000 no-repeat center fixed; 
+  }
+  #bgvid { 
+    display: none; 
+  }
+}
+
+@media screen and (max-width: 780px) {
+  
+  #soundcloud_container {
+    width: 30%;
+    height: 100px;
+    float: left;
+    margin-top: 25px;
+    z-index: 9999;
+  }
+  #logo_container {
+    margin-left: 5%;
+  }
+  #submit_container_show {
+    float: left;
+    width: 30%;
+    height: 50px;
+    margin-left: 0%;
+}
+  .submit_field_show {
+    padding: 2px;
+    width: 60%;
+    font-size: .8em;
+  }
+  .submit_button_show {
+    margin-right: 3%;
+    padding: 4px 5px;
+    text-align: center; 
+    font-size: .8em;
+  }
+  #logo_container h4 {
+    font-size: .9em;
+  }
+}
+
+@media screen and (max-width: 630px) {
+
+  #logo_container h4 {
+    font-size: .7em;
+    margin-top: -35px;
+  }
+  #ball-wrapper {
+    right: 10%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  
+  footer {
+    height: 335px;
+    background-color: rgba(255,255,255, .2);  
+    padding-bottom: 0;
+  }
+  #soundcloud_container {
+    width: 80%;
+    height: 100px;
+    float: left;
+    margin-top: 15px;
+
+    margin-left: 10%;
+    margin-right: 10%;
+    z-index: 9999;
+  }
+  #logo_container {
+    float: left;
+    width: 80%;
+    height: auto;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+  #submit_container_show {
+    float: left;
+    width: 60%;
+    height: 50px;
+    margin-left: 20%;
+    margin-top: 15px;
+  }
+  .submit_field_show {
+    padding: 2px;
+    width: 60%;
+    text-align: center;
+    font-size: .8em;
+  }
+  .submit_button_show {
+    padding: 4px 5px;
+    text-align: center; 
+    font-size: .8em;
+  }
+  #ball-wrapper {
+    right: 18%;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
