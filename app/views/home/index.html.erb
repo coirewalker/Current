@@ -1,28 +1,20 @@
 <video width="400" autoplay loop id="bgvid">
-	<source src="/assets/current-homepage.mp4" type="video/mp4">
+	<source src="/assets/current-homepage-480p.mp4" type="video/mp4">
 </video>
 
-
-<!-- <div id="load_screen_div">
-	<div id="load_gif"></div>
-	<h1>Current is gathering local music for you...</h1>
-</div> end loading div --> 
-
 <div id="homepage_container">
-	
 	<div id="homepage_logo_container">
 		<div id="logo"></div>
 	</div>
-	
 	<div id="welcome_container">
 		<div id="welcome">
 			<h2>local, live, artist radio.</h2>  
-			<br>
+			<br>	
 			<%= form_tag(show_path) do %>
-			<%= text_field_tag :users_zip, nil, :placeholder => "enter your zipcode", class: "submit_field", required: true %>
-			<p></p>
-			<%= submit_tag "listen", class: "submit_button_home" %>
-			<% end %>	
+				<%= text_field_tag :users_zip, nil, :placeholder => "enter your zipcode", class: "submit_field", required: true, minlength: 5, maxlength: 5 %>
+				<p></p>
+				<%= submit_tag "listen", class: "submit_button_home" %>
+			<% end %>
 		</div>
 	</div>
 	<br>
@@ -30,6 +22,4 @@
 		<div id="pitch"><h3>Current streams music from artists performing in your neighborhood, tonight!</h3>
 		</div>
 	</div>
-
 </div>
-

@@ -17,22 +17,17 @@ class SoundCloud
 					artist_id: artist.id,
 					song_name: track["title"],
 					stream_url: track["stream_url"]
+					#venue_name: ??
+					# add column t.string "venue_name" in songs DB
 					)
 			end
 			song
 		end
 		tracks
-		#id = response[0]["id"]
 	end
 
 	def self.get_song_location(song)
 		response = CLIENT.get(song.stream_url, :allow_redirects => true)	
 	end
-
-	#trying to think through this thing...
-	# def playlist_parsed 
-	# 	song.select{ |x,y| } if x != null and y == soundcloud_id
-	# 	song == song_valid
-	# end
 
 end
