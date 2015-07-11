@@ -63,6 +63,7 @@
   // var trackCount = 1;
 	// var scTracks = <%= @tracks %>	
 	var eventsList = <%= raw @events.to_json %>
+
 	var tracker = {currentVenue: 0, currentArtist: 0};
 
 	// plays next song  
@@ -76,18 +77,6 @@
 		console.log("Playing at: " + venue)
 	}
 
-	// function locateVenue(trackId, eventsList) {
-	// 	for (var i = 0; i < eventsList.length; i++) {
-	// 		for (var j = 0; j < eventsList[i].artists.length; j++) {
-	// 			if (eventsList[i].artists[j].song.soundcloud_id === trackId.toString()) {
-	// 				console.log("Found track in venue: " + eventsList[i].venue.name)
-	// 				return eventsList[i].venue.name
-	// 			}
-	// 		}
-	// 	}
-	// 	return "Venue Not Found?!"
-	// }
-
 	function playNextTrack(eventsList, tracker) {
 		console.log('Song Finished');
 		var newSong = eventsList[tracker.currentVenue].artists[tracker.currentArtist + 1];
@@ -95,15 +84,31 @@
 			widget.load(scTrackUrl(newSong.song.soundcloud_id), {auto_play: true});
 			updateVenueInfo(eventsList[tracker.currentVenue].venue.name);
 			tracker.currentArtist++;
-		} 
-		else if () {
-			eventsList[tracker.currentVenue] == nil 
 		}
-	    
+		// else (eventsList[tracker.currentVenue].artists[tracker.currentArtist] == eventsList[tracker.currentVenue].artists[tracker.currentArtist].last) {
+		// 	console.log "end of artists at this venue!";
+		// 	updateVenueInfo(eventsList[tracker.currentVenue].venue.name);
+		// 	tracker.currentVenue++;
+		// }
+
 	}
 
 	playNextTrack(eventsList, tracker);
 	</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

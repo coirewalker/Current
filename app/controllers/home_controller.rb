@@ -9,7 +9,7 @@ class HomeController < ApplicationController
   	@events.map do |event|
   		if event[:artists]
 	  		event[:artists].map do |artist|
-	  			@tracks << artist[:artist].songs.first.soundcloud_id.to_i if artist[:artist].songs.any? and artist[:artist].songs.first.soundcloud_id #and [:venue]["Name"].first
+	  			@tracks << artist[:artist].songs.first.soundcloud_id.to_i if artist[:artist].songs.any? and artist[:artist].songs.first.soundcloud_id 
 
 	  		end
 	  	end

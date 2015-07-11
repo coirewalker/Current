@@ -275,7 +275,7 @@ body{
 	transform: translateX(-50%) translateY(-50%);
 	background: url(bg-image.jpg) no-repeat;
 	background-size: cover;
-	opacity: .7;
+	opacity: .9;
 }
 
 
@@ -733,13 +733,14 @@ footer {
     z-index: 0;
 }
 
-body {  
+/*body {  
+
   min-width: 100%;
   min-height: 96.7vh;
   content: '';
   background: transparent url(pattern.png) repeat top left;
   z-index: 2;
-}
+}*/
 
 .slideshow:after {
     content: '';
@@ -995,12 +996,12 @@ body {
 
 @media screen and (max-width: 850px) {
   
-/*  body { 
+  body { 
     background: url(bg-image.png) #000 no-repeat center fixed; 
   }
   #bgvid { 
     display: none; 
-  }*/
+  }
   #logo {
     height: 105px;
     width: 90%;
@@ -1106,7 +1107,7 @@ body {
     display: none;
   }
   #show_bg {
-    background: url(image3.jpg) no-repeat;
+    background: url(bg-image.jpg) no-repeat;
     background-size: cover;
 
   }

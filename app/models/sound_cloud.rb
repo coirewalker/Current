@@ -17,8 +17,6 @@ class SoundCloud
 					artist_id: artist.id,
 					song_name: track["title"],
 					stream_url: track["stream_url"]
-					#venue_name: ??
-					# add column t.string "venue_name" in songs DB
 					)
 			end
 			song
