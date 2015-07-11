@@ -7,7 +7,6 @@
   <div class="loader-section section-right"></div>
 </div><!-- end preloader -->
 
-<div id="show_bg"><!-- static background image -->
  <id="image_link" data-image-url="<%= image_url 'image2.jpg' %>" >
 </div>
 
@@ -65,36 +64,65 @@
 	var eventsList = <%= raw @events.to_json %>
 
 	var tracker = {currentVenue: 0, currentArtist: 0};
-
-	// plays next song  
 	var widget = SC.Widget(document.getElementById('soundcloud_widget'));
+
 	widget.bind(SC.Widget.Events.FINISH, function() {
-	  playNextTrack(eventsList, tracker);
-	});	
+		console.log('Song Finished');
+		getNextArtist(); // update tracker to the next indexes
+		playTrack(tracker);
+	});
+
+
+	function getNextArtist(){
+		var nextArtist = tracker.currentArtist + 1; // Next artist
+		var nextVenue = tracker.currentVenue; // Same venue. We only change it if it's the last artist
+		if(nextArtist >= eventsList[tracker.currentVenue].artists.length){
+			
+			nextVenue++;
+			if(nextVenue >= eventsList.length){ // Check if it's the last venue, and if it is, go back to the beginning...
+				nextVenue = 0;
+			}
+			
+			nextArtist = 0; // Since we changed the venue, we set the artist automatically to zero.
+		}
+
+		// Set the tracker to the new indexes
+		tracker = {
+			currentVenue: nextVenue, 
+			currentArtist: nextArtist
+		};
+
+		// Now that we've updated our indexes, we need to check if the current 
+		// artist has a song assigned to it, and if not, advance to the next...
+		var song = eventsList[nextVenue].artists[nextArtist].song;
+		if(!song.soundcloud_id){
+			getNextArtist(); // <---- This is when recursion comes in handy!!! :)
+		}
+
+	}
+
 
 	function updateVenueInfo(venue) {
 		document.getElementById('show_venue').innerHTML = "Playing at: " + venue;
-		console.log("Playing at: " + venue)
+		console.log("Playing at: " + venue);
 	}
 
-	function playNextTrack(eventsList, tracker) {
-		console.log('Song Finished');
-		var newSong = eventsList[tracker.currentVenue].artists[tracker.currentArtist + 1];
-		if (typeof(newSong) !== undefined) {
-			widget.load(scTrackUrl(newSong.song.soundcloud_id), {auto_play: true});
-			updateVenueInfo(eventsList[tracker.currentVenue].venue.name);
-			tracker.currentArtist++;
-		}
-		// else (eventsList[tracker.currentVenue].artists[tracker.currentArtist] == eventsList[tracker.currentVenue].artists[tracker.currentArtist].last) {
-		// 	console.log "end of artists at this venue!";
-		// 	updateVenueInfo(eventsList[tracker.currentVenue].venue.name);
-		// 	tracker.currentVenue++;
-		// }
 
+	function playTrack(tracker) {
+		var venue = eventsList[tracker.currentVenue].venue;
+		var song = eventsList[tracker.currentVenue].artists[tracker.currentArtist].song;
+		widget.load("https://api.soundcloud.com/tracks/" + song.soundcloud_id, {
+			auto_play: true,
+			show_artwork: false,
+			liking: false,
+			sharing: false
+		});
+		updateVenueInfo(venue.name);
 	}
 
-	playNextTrack(eventsList, tracker);
-	</script>
+	playTrack(tracker);
+
+</script>
 
 
 

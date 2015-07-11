@@ -281,7 +281,7 @@ body{
 
 h1, h2, h3, h4, h5, p {
   color: white;
-  text-shadow: 0px 0px 3px .6;
+  text-shadow: 0px 0px 8px rgba(000,000,000, .9);
 }
 
 h1, h2, {
@@ -355,11 +355,10 @@ p {
   font-size: 1em;
   font-family: 'Lato 300', sans-serif;
   color: white;
-  text-shadow: 0px 0px 3px .6;
 }
 
 #bg-img {
-  background: url(bg-image.png) no-repeat center;
+  background: url(bg-image.jpg) no-repeat center;
   margin: 0;
   width: 1600px;
   height: 700px;
@@ -764,7 +763,7 @@ footer {
     -moz-animation: imageAnimation 72s linear infinite 0s;
     -o-animation: imageAnimation 72s linear infinite 0s;
     -ms-animation: imageAnimation 72s linear infinite 0s;
-    animation: imageAnimation 72s linear infinite 0s;
+    animation: imageAnimation 144s linear infinite 0s;
 }
 .slideshow li div {
     z-index: 1000;
@@ -778,7 +777,7 @@ footer {
     -moz-animation: titleAnimation 72s linear infinite 0s;
     -o-animation: titleAnimation 72s linear infinite 0s;
     -ms-animation: titleAnimation 72s linear infinite 0s;
-    animation: titleAnimation 72s linear infinite 0s;
+    animation: titleAnimation 144s linear infinite 0s;
 }
 
 .slideshow li:nth-child(1) span { background-image: url(image1.jpg) }
@@ -788,7 +787,7 @@ footer {
     -moz-animation-delay: 12s;
     -o-animation-delay: 12s;
     -ms-animation-delay: 12s;
-    animation-delay: 12s;
+    animation-delay: 24s;
 }
 .slideshow li:nth-child(3) span {
     background-image: url(image3.jpg);
@@ -796,7 +795,7 @@ footer {
     -moz-animation-delay: 24s;
     -o-animation-delay: 24s;
     -ms-animation-delay: 24s;
-    animation-delay: 24s;
+    animation-delay: 48s;
 }
 .slideshow li:nth-child(4) span {
     background-image: url(image4.jpg);
@@ -804,7 +803,7 @@ footer {
     -moz-animation-delay: 36s;
     -o-animation-delay: 36s;
     -ms-animation-delay: 36s;
-    animation-delay: 36s;
+    animation-delay: 72s;
 }
 .slideshow li:nth-child(5) span {
     background-image: url(image5.jpg);
@@ -812,7 +811,7 @@ footer {
     -moz-animation-delay: 48s;
     -o-animation-delay: 48s;
     -ms-animation-delay: 48s;
-    animation-delay: 48s;
+    animation-delay: 96s;
 }
 .slideshow li:nth-child(6) span {
     background-image: url(image6.jpg);
@@ -820,42 +819,42 @@ footer {
     -moz-animation-delay: 60s;
     -o-animation-delay: 60s;
     -ms-animation-delay: 60s;
-    animation-delay: 60s;
+    animation-delay: 120s;
 }
 .slideshow li:nth-child(2) div {
     -webkit-animation-delay: 12s;
     -moz-animation-delay: 12s;
     -o-animation-delay: 12s;
     -ms-animation-delay: 12s;
-    animation-delay: 12s;
+    animation-delay: 24s;
 }
 .slideshow li:nth-child(3) div {
     -webkit-animation-delay: 24s;
     -moz-animation-delay: 24s;
     -o-animation-delay: 24s;
     -ms-animation-delay: 24s;
-    animation-delay: 24s;
+    animation-delay: 48s;
 }
 .slideshow li:nth-child(4) div {
     -webkit-animation-delay: 36s;
     -moz-animation-delay: 36s;
     -o-animation-delay: 36s;
     -ms-animation-delay: 36s;
-    animation-delay: 36s;
+    animation-delay: 72s;
 }
 .slideshow li:nth-child(5) div {
     -webkit-animation-delay: 48s;
     -moz-animation-delay: 48s;
     -o-animation-delay: 48s;
     -ms-animation-delay: 48s;
-    animation-delay: 48s;
+    animation-delay: 96s;
 }
 .slideshow li:nth-child(6) div {
     -webkit-animation-delay: 60s;
     -moz-animation-delay: 60s;
     -o-animation-delay: 60s;
     -ms-animation-delay: 60s;
-    animation-delay: 60s;
+    animation-delay: 120s;
 }
 /* Animation for the slideshow images */
 @-webkit-keyframes imageAnimation { 
@@ -994,10 +993,10 @@ footer {
   }
 }
 
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 900px) {
   
   body { 
-    background: url(bg-image.png) #000 no-repeat center fixed; 
+    background: url(bg-image.jpg) #000 no-repeat center fixed; 
   }
   #bgvid { 
     display: none; 
@@ -1109,10 +1108,9 @@ footer {
   #show_bg {
     background: url(bg-image.jpg) no-repeat;
     background-size: cover;
-
   }
   #ball-wrapper {
-    display: none;
+    right: 10%;
   }
 }
 
@@ -1147,6 +1145,15 @@ footer {
   #logo_container h4 {
     font-size: .9em;
   }
+  .ball {
+  width: 4px;
+  height: 4px;
+  margin: 8px auto;
+  border-radius: 50px;
+  }   
+  #ball-wrapper {
+    right: 12%;
+  } 
 }
 
 @media screen and (max-width: 630px) {
@@ -1154,9 +1161,6 @@ footer {
   #logo_container h4 {
     font-size: .7em;
     margin-top: -35px;
-  }
-  #ball-wrapper {
-    right: 10%;
   }
 }
 
@@ -1202,14 +1206,16 @@ footer {
     text-align: center; 
     font-size: .8em;
   }
-  #ball-wrapper {
-    right: 18%;
-  }
   #show_venue {
-  text-align: center;
-  font-size: .85em;
-}
-
+    text-align: center;
+    font-size: .85em;
+  }
+  .ball {
+    width: 2px;
+    height: 2px;
+    margin: 8px auto;
+    border-radius: 50px;
+  }    
 }
 
 
