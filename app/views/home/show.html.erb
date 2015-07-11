@@ -56,11 +56,8 @@
 	</div><!-- end footer_container -->
 </footer>
 
-
 <!-- Soundcloud Player JS -->
 <script>
-  // var trackCount = 1;
-	// var scTracks = <%= @tracks %>	
 	var eventsList = <%= raw @events.to_json %>
 
 	var tracker = {currentVenue: 0, currentArtist: 0};
@@ -101,12 +98,10 @@
 
 	}
 
-
 	function updateVenueInfo(venue) {
 		document.getElementById('show_venue').innerHTML = "Playing at: " + venue;
 		console.log("Playing at: " + venue);
 	}
-
 
 	function playTrack(tracker) {
 		var venue = eventsList[tracker.currentVenue].venue;
@@ -121,7 +116,6 @@
 	}
 
 	playTrack(tracker);
-
 </script>
 
 
