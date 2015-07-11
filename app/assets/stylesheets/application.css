@@ -16,7 +16,6 @@
 
 /** ======================================= INDEX =========================================== **/
 
-
 input:focus,
 select:focus,
 textarea:focus,
@@ -55,7 +54,6 @@ body{
 	opacity: .7;
 }
 
-
 h1, h2, h3, h4, h5, p {
   color: white;
   text-shadow: 0px 1px 4px rgba(000,000,000, 1);
@@ -78,7 +76,6 @@ ul, li {
 p {
    text-align: center;
  }
-
 
 /* ============ containers HOMEPAGE ===========*/
 
@@ -107,6 +104,23 @@ p {
   margin: 0px auto;
   z-index: 99;
   opacity: 1;
+}
+
+#current-sponsors-container {
+  position: fixed;
+  top: 15px;
+  right: 30px;
+  width: 10%;
+  height: 40px;
+  opacity: .8;
+}
+
+#current-sponsors-image {
+  background: url(current-sponsors.png) no-repeat center;
+  background-size: contain;
+  height: 100%;
+  width: 100%;
+  z-index: 9999;
 }
 /* =============== */ 
 
@@ -199,7 +213,6 @@ p {
   background-size: cover;
   display: none;
 }
-
 
 #show_venue {
   margin-left: 3%;
@@ -360,7 +373,8 @@ footer {
     }
 
 
-/** ========================================== animated balls ================================================**/
+
+/** ========================================== balls sidebar ================================================**/
 
 #ball-wrapper {
   position: fixed;
@@ -734,12 +748,10 @@ body {
   }
   100% { opacity: 0 }
 }
-
-/* Show at least something when animations not supported */
+/* Show something when animations not supported */
 .no-cssanimations .cb-slideshow li span{
   opacity: 1;
 }
-
 
 
 
@@ -805,6 +817,14 @@ body {
   .submit_field {
     font-size: 1.1em;
     padding: 4px;
+  }
+  #current-sponsors-container {
+    position: fixed;
+    top: 15px;
+    right: 30px;
+    width: 100px;
+    height: 45px;
+    opacity: .8;
   }
 }
 
