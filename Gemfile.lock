@@ -59,7 +59,6 @@ GEM
       multipart-post (>= 1.2, < 3)
     globalid (0.3.5)
       activesupport (>= 4.1.0)
-    going_postal (0.1.5)
     hashie (3.4.2)
     httmultiparty (0.3.16)
       httparty (>= 0.7.3)
@@ -198,7 +197,6 @@ PLATFORMS
 DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
-  going_postal
   httparty
   jbuilder (~> 2.0)
   jquery-rails
