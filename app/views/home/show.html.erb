@@ -95,7 +95,7 @@
 		// artist has a song assigned to it, and if not, advance to the next...
 		var song = eventsList[nextVenue].artists[nextArtist].song;
 		if(!song.soundcloud_id){
-			getNextArtist(); // <---- This is when recursion comes in handy!!! :)
+			getNextArtist(); // recursion...
 		}
 
 	}
