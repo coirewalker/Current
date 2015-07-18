@@ -1,7 +1,7 @@
 class SoundCloud
 
 	CLIENT = Soundcloud.new(:client_id => 'ddac1035019e721df71b51a0e6d38a7f',
-                        :client_secret => '2bc60eb40dc4943293c3d1486fe0989a',
+                        :client_secret => ENV['’SOUNDCLOUD_APIKEY'],
                         :redirect_uri => 'http://example.com/callback')
 
 	def self.get_artist_tracks(artist, track_count=1)

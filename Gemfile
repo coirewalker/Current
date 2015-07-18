@@ -25,7 +25,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'json'
 gem 'rest-client'
-gem 'rspotify'
 gem 'httparty'
 gem 'soundcloud'
 
