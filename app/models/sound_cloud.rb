@@ -1,6 +1,6 @@
 class SoundCloud
 
-	CLIENT = Soundcloud.new(:client_id => 'ddac1035019e721df71b51a0e6d38a7f',
+	CLIENT = Soundcloud.new(:client_id => '6cd1f51e6347887c078767d1780aad07',
                         :client_secret => ENV['’SOUNDCLOUD_APIKEY'],
                         :redirect_uri => 'http://example.com/callback')
 
