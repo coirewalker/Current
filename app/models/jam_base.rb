@@ -4,7 +4,7 @@ class JamBase
 		start_time = Time.now.strftime("%FT%H:%M:%S") 
 		end_time = (Time.now + no_of_days.days).strftime("%FT%H:%M:%S") 
   	# location search:
-		uri = URI("http://api.jambase.com/events?zipCode=#{zip}&radius=10&startDate=#{start_time}&endDate=#{end_time}&page=0&api_key=pedaafhf7xkuaegea2nmrmjs")
+		uri = URI("http://api.jambase.com/events?zipCode=#{zip}&radius=15&startDate=#{start_time}&endDate=#{end_time}&page=0&api_key=pedaafhf7xkuaegea2nmrmjs")
 		
 		# commented out to save requests
 		response = JSON.parse(Net::HTTP.get(uri))
