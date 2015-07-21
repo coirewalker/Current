@@ -20,19 +20,27 @@ set :deploy_to, "/var/www/#{fetch(:application)}"
 # set :log_level, :debug
 
 # Default value for :pty is false
-# set :pty, true
+set :pty, true
 
 # Default value for :linked_files is []
-# set :linked_files, %w{config/database.yml}
+set :linked_files, %w{config/database.yml config/secrets.yml}
 
 # Default value for linked_dirs is []
-# set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
+set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads}
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
 
 # Default value for keep_releases is 5
 # set :keep_releases, 5
+
+set :deploy_via, :remote_cache
+
+set :rvm_ruby_version, 'ruby-2.1.2'
+set :rvm_type, :system
+# set :rvm_bin_path, '/usr/local/rvm/bin/'
+
+set :normalize_asset_timestamps, %{public/images public/javascripts public/stylesheets}
 
 namespace :deploy do
 
