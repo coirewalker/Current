@@ -27,6 +27,11 @@ $(document).ready(function () {
     $('h1').css('color','#222222');
   }, 3000);
 
+  // $(".submit_button_home").click(function(){
+  //   $("#loader-wrapper").css("display", "block");
+  // });
+  
+
 });
 
 function scUrl(trackId) {

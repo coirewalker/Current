@@ -1,4 +1,3 @@
-
 <div id="loader-wrapper"><!-- preloader -->
 	<div id="loader"></div>
 <!-- 	<div id="wait"><h4>Current is finding local music for you...</h4></div> -->
@@ -64,7 +63,7 @@
 
 	widget.bind(SC.Widget.Events.FINISH, function() {
 		console.log('Song Finished');
-		getNextArtist(); // update tracker to the next indexes
+		getNextArtist(); // update tracker to the next index
 		playTrack(tracker);
 	});
 
@@ -75,7 +74,7 @@
 		if(nextArtist >= eventsList[tracker.currentVenue].artists.length){
 			
 			nextVenue++;
-			if(nextVenue >= eventsList.length){ // Check if it's the last venue, and if it is, go back to the beginning...
+			if(nextVenue >= eventsList.length){ // Check if it's the last venue, and if it is, go back to the beginning
 				nextVenue = 0;
 			}
 			
