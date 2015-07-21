@@ -40,7 +40,7 @@ end
 
 group :development do
   # Use Capistrano for deployment
-  gem 'capistrano', '~> 3.2'
+  gem 'capistrano'
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano-rvm'
