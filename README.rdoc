@@ -1,28 +1,3 @@
-== README
+Now called "Current".  This is a personal project of mine designed to address the difficulties of discovering good live, local music.  Current is an internet radio that creates playlists entirely from artists performing near your zipcode within a 24hr period.  Current searches events from venues within 10 miles of your zipcode using the Jambase API, finds those  perfoming artists and selects songs from them.  One song from each artist is then sent to the Soundcloud API for playlist creation and streaming.  
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Future iterations will include international zipcode search, gMaps integration, customizable radius and user profile analytics.  Enjoy!  
