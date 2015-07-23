@@ -1,7 +1,7 @@
 class SoundCloud
 
-	CLIENT = Soundcloud.new(:client_id => 'ddac1035019e721df71b51a0e6d38a7f',
-                        :client_secret => '2bc60eb40dc4943293c3d1486fe0989a',
+	CLIENT = Soundcloud.new(:client_id => '6cd1f51e6347887c078767d1780aad07',
+                        :client_secret => ENV['’SOUNDCLOUD_APIKEY'],
                         :redirect_uri => 'http://example.com/callback')
 
 	def self.get_artist_tracks(artist, track_count=1)
@@ -22,17 +22,10 @@ class SoundCloud
 			song
 		end
 		tracks
-		#id = response[0]["id"]
 	end
 
 	def self.get_song_location(song)
 		response = CLIENT.get(song.stream_url, :allow_redirects => true)	
 	end
-
-	#trying to think through this thing...
-	# def playlist_parsed 
-	# 	song.select{ |x,y| } if x != null and y == soundcloud_id
-	# 	song == song_valid
-	# end
 
 end

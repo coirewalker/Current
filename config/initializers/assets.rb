@@ -8,4 +8,4 @@ Rails.application.config.assets.version = '1.0'
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
-# Rails.application.config.assets.precompile += %w( search.js )
+Rails.application.config.assets.precompile += %w( api.js application.js modernizer-2.6.2.min.js modernizr.custom.86080.js soundcloud.player.api.js application.css.erb artists.scss home.scss loader.css main.css)
