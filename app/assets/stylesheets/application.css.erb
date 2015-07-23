@@ -153,7 +153,6 @@ p {
 
 #pitch {
   text-align: center;
-  font-size: 1em;
   font-family: 'Lato 300', sans-serif;
   color: white;
 }
@@ -166,13 +165,7 @@ p {
   z-index: 97;
   opacity: 1;
 }
-/*
-.submit_field {
-  width: 50%;
-  font-size: 1em;
-  color: black;
-  padding: 4px;
-}*/
+
 .submit_button_home {
   margin-top: 20px;
   padding: 5px 16px;
@@ -218,7 +211,6 @@ p {
 
 
 /** ===================================== SHOW ============================================ **/
-
 #show_bg {
   background: url(<%= asset_path 'image3.jpg' %>) no-repeat;
   background-size: cover;
@@ -228,7 +220,6 @@ p {
 #show_venue {
   margin-left: 3%;
   margin-top: 15px;
-/*  padding-bottom: 10px;*/
   color: white;  
   font-family: 'Raleway', sans-serif;
   font-weight: 100;
@@ -238,7 +229,6 @@ p {
 .submit_button_show {
   padding: 6px 8px;
   margin-top: 10px;
- /* margin-right: 45px;*/
   text-align: center;
   border: 1px solid white !important;
   border-radius: 100px;
@@ -295,7 +285,6 @@ p {
   height: 120px;
 }
 
-
 #logo_show_load {
   background: url(<%= asset_path 'current-logo.png' %>) no-repeat center;
   background-size: contain;
@@ -318,8 +307,7 @@ p {
   margin: 0 auto;
 }
 
-/*========== containers SHOW ===========*/ 
-
+/*======== containers SHOW ======*/ 
 #soundcloud_container {
   width: 27%;
   height: 100px;
@@ -383,7 +371,6 @@ footer {
   padding-bottom: 35px; 
   z-index: 98;
   background: rgba(215, 44, 72, 1);
-
   /** footer gradient **/
       background: rgba(0,0,0,1);
     background: -moz-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.96) 9%, rgba(0,0,0,0.85) 55%, rgba(0,0,0,0.71) 85%, rgba(0,0,0,0.58) 100%);
@@ -397,8 +384,7 @@ footer {
 
 
 
-/** ========================================== balls sidebar ================================================**/
-
+/* ====== balls sidebar ===== */
 #ball-wrapper {
   position: fixed;
   right: 6%;
@@ -497,42 +483,41 @@ footer {
       -moz-animation: right .5s infinite ease-in-out;
       animation: right .5s infinite ease-in-out;
     }
+  @-webkit-keyframes right {
+    0%   { -webkit-transform: translate(-10px);   }
+    50%  { -webkit-transform: translate(10px);    }
+    100% { -webkit-transform: translate(-10px);   }
+  }
 
-@-webkit-keyframes right {
-  0%   { -webkit-transform: translate(-10px);   }
-  50%  { -webkit-transform: translate(10px);    }
-  100% { -webkit-transform: translate(-10px);   }
-}
+  @-webkit-keyframes left {
+    0%   { -webkit-transform: translate(10px);    }
+    50%  { -webkit-transform: translate(-10px);   }
+    100% { -webkit-transform: translate(10px);    }
+  }
 
-@-webkit-keyframes left {
-  0%   { -webkit-transform: translate(10px);    }
-  50%  { -webkit-transform: translate(-10px);   }
-  100% { -webkit-transform: translate(10px);    }
-}
+  @-moz-keyframes right {
+    0%   { -moz-transform: translate(-10px);   }
+    50%  { -moz-transform: translate(10px);    }
+    100% { -moz-transform: translate(-10px);   }
+  }
 
-@-moz-keyframes right {
-  0%   { -moz-transform: translate(-10px);   }
-  50%  { -moz-transform: translate(10px);    }
-  100% { -moz-transform: translate(-10px);   }
-}
+  @-moz-keyframes left {
+    0%   { -moz-transform: translate(10px);    }
+    50%  { -moz-transform: translate(-10px);   }
+    100% { -moz-transform: translate(10px);    }
+  }
 
-@-moz-keyframes left {
-  0%   { -moz-transform: translate(10px);    }
-  50%  { -moz-transform: translate(-10px);   }
-  100% { -moz-transform: translate(10px);    }
-}
+  @keyframes right {
+    0%   { transform: translate(-10px);  }
+    50%  { transform: translate(10px);   }
+    100% { transform: translate(-10px);  }
+  }
 
-@keyframes right {
-  0%   { transform: translate(-10px);  }
-  50%  { transform: translate(10px);   }
-  100% { transform: translate(-10px);  }
-}
-
-@keyframes left {
-  0%   { transform: translate(10px);   }
-  50%  { transform: translate(-10px);  }
-  100% { transform: translate(10px);   }
-}
+  @keyframes left {
+    0%   { transform: translate(10px);   }
+    50%  { transform: translate(-10px);  }
+    100% { transform: translate(10px);   }
+  }
 
 
 /** ==================================  Slideshow  =============================================== **/
@@ -545,15 +530,6 @@ footer {
     left: 0px;
     z-index: 0;
 }
-/*
-body {  
-
-  min-width: 100%;
-  min-height: 96.7vh;
-  content: '';
-  background: transparent url(<%= asset_path 'pattern.png' %>) repeat top left;
-  z-index: 2;
-}*/
 
 .slideshow:after {
     content: '';
@@ -670,7 +646,7 @@ body {
     -ms-animation-delay: 60s;
     animation-delay: 120s;
 }
-/* Animation for the slideshow images */
+/* slideshow image zoom */
 @-webkit-keyframes imageAnimation { 
   0% {
       opacity: 0;
@@ -779,12 +755,10 @@ body {
 
 
 
-
 /* =============== media queries  ================ */
 
 /* iPad screens */
 @media screen and (max-width: 1024px) {
-  
   body { 
     background: url(<%= asset_path 'bg-image.jpg' %>) #000 no-repeat center fixed; 
   } 
@@ -822,11 +796,10 @@ body {
 }
 
 @media screen and (max-width: 940px) {
-
   #homepage_container {
     width: 65%;
   }
-  #homepage_logo_container, #welcome_container {
+  #homepage_logo_container {
     width: 70%;
     margin: 0 auto;
   }
@@ -844,7 +817,6 @@ body {
 }
 
 @media screen and (max-width: 900px) {
- 
   #logo {
     height: 105px;
     width: 90%;
@@ -867,8 +839,7 @@ body {
   }
 }
 
-@media screen and (max-width: 780px) {
-  
+@media screen and (max-width: 780px) { 
   #soundcloud_container {
     width: 27%;
     height: 100px;
@@ -883,7 +854,7 @@ body {
     width: 30%;
     height: 50px;
     margin-left: 0%;
-}
+  }
   .submit_field_show {
     padding: 2px;
     width: 60%;
@@ -899,10 +870,10 @@ body {
     font-size: .9em;
   }
   .ball {
-  width: 3px;
-  height: 3px;
-  margin: 8px auto;
-  border-radius: 50px;
+    width: 3px;
+    height: 3px;
+    margin: 8px auto;
+    border-radius: 50px;
   }   
   #ball-wrapper {
     right: 12%;
@@ -910,7 +881,6 @@ body {
 }
 
 @media screen and (max-width: 700px) {
-
   #logo {
     height: 105px;
     width: 100%;
@@ -921,26 +891,16 @@ body {
   }
   #welcome h2 {
     font-size: 1.2em;
-    margin-bottom: 35%;
-  }
-  #pitch h3 {
-    font-size: 1em;
+    margin-bottom: 27%;
   }
   .submit_button_home {
     margin-top: 12px;
     padding: 3px 8px;
     font-size: 1.6em;
   }
-  .submit_field {
-    width: 55%;
-    font-size: .9em;
-    padding: 3px;
-  }
 }
 
-
 @media screen and (max-width: 630px) {
-
   #logo_container h4 {
     font-size: .7em;
     margin-top: -35px;
@@ -953,7 +913,13 @@ body {
 }
 
 @media screen and (max-width: 530px) {
-
+  #homepage_container {
+    width: 85%;
+  }
+  #homepage_logo_container, #welcome_container {
+    width: 85%;
+    margin: 0 auto;
+  }
   #logo {
     height: 105px;
     width: 100%;
@@ -964,12 +930,12 @@ body {
   }
   #welcome h2 {
     font-size: 1.2em;
-    margin-bottom: 40%;
   }
   #pitch_container {
     width: 60%;
   }
-  #pitch h3 {
+  #pitch {
+    text-shadow: 0px 1px 7px rgba(000,000,000, 1);
     font-size: .8em;
   }
   .submit_button_home {
@@ -977,17 +943,9 @@ body {
     padding: 2px 5px;
     font-size: 1.4em;
   }
-  .submit_button_home:hover { 
-  }
-  .submit_field {
-    width: 60%;
-    font-size: .8em;
-    padding: 3px;
-  }
 }
 
-@media screen and (max-width: 500px) {
-  
+@media screen and (max-width: 500px) { 
   footer {
     height: 365px;
     background-color: rgba(255,255,255, .2);  
@@ -1047,38 +1005,48 @@ body {
   }    
 }
 
-@media screen and (max-width: 420px) {
+/* iPhone 6 screen */
+/*@media screen and (max-width: 375px) {
 
-  .submit_field {
-    font-size: .7em;
-    padding: 3px;
+}*/
+
+/* iPhone 4+5 screen */
+@media screen and (max-width: 320px) {
+  body {
+    height: 95vh;
+  }
+  #homepage_container {
+    width: 60%;
+    padding-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #homepage_logo_container {
+    float: left;
+    width: 100%;
+    height: auto;
+    margin-left: 0%;
+    margin-right: 0%;
+  }
+  #welcome {
+    margin-bottom: 15px;
   }
   #welcome h2 {
-    font-size: .9em;
-    margin-top: -20px;
-    margin-bottom: 30%;
+    margin-top: -5px;
+    font-size: .8em;
   }
-}
-
-/* iPhone 6 screen */
-@media screen and (max-width: 375px) {
-  #welcome_container {
-    font-size: .7em;
+  #pitch_container {
+      width: 90%;
+      margin-bottom: 60px;
+    }
   }
-  #submit_container_show {
-    font-size: .7em;
+  #pitch {
+    font-size: .65em;
+    text-shadow: 0px 0px 7px rgba(000,000,000, 1);
   }
-}
-
-/* iPhone 4 screen */
-@media screen and (max-width: 320px) {
-  #homepage_container {
-  width: 60%;
-  padding-top: 100px;
-  margin-left: auto;
-  margin-right: auto;
-}
-}
+  .submit_field {
+    font-size: .6em;
+  }
 
 @media screen and (max-width: 260px) {
   #submit_container_show {
@@ -1089,8 +1057,8 @@ body {
 
 
 
-/* ======================= LOADING SCREEN =================== */
 
+/* ====== preloader ===== */
 .chromeframe {
     margin: 0.2em 0;
     background: #ccc;

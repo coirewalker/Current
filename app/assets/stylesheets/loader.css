@@ -1,6 +1,5 @@
 /* ======================= LOADING SCREEN =================== */
 
-
 .chromeframe {
     margin: 0.2em 0;
     background: #ccc;
@@ -145,6 +144,8 @@
             transition: all 0.3s 1s ease-out;
 }
 
+#wait h4 
+
 /* JavaScript Turned Off */
 .no-js #loader-wrapper {
     display: none;
@@ -222,7 +223,6 @@
 .clearfix {
     *zoom: 1;
 }
-
 
 
 
