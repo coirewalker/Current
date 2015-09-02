@@ -13,6 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+
 $(document).ready(function () {
 
 	$(".ball").hide().delay(4000).fadeIn(4500);
@@ -22,6 +24,7 @@ $(document).ready(function () {
   $("#slogan").hide().fadeIn(4000);
   $("#now-playing").hide().fadeIn(4000);
 
+  // preloader JS
   setTimeout(function(){
     $('body').addClass('loaded');
     $('h1').css('color','#222222');
@@ -31,13 +34,14 @@ $(document).ready(function () {
   //   $("#loader-wrapper").css("display", "block");
   // });
   
+  function scUrl(trackId) {
+    return "http://w.soundcloud.com/player/?url=https://api.soundcloud.com/tracks/" + trackId.toString() + "&show_artwork=false&liking=false&sharing=false&auto_play=true"
+  }
+
+  function scTrackUrl(trackId) {
+    return "https://api.soundcloud.com/tracks/" + trackId.toString()
+  }
 
 });
 
-function scUrl(trackId) {
-  return "http://w.soundcloud.com/player/?url=https://api.soundcloud.com/tracks/" + trackId.toString() + "&show_artwork=false&liking=false&sharing=false&auto_play=true"
-}
 
-function scTrackUrl(trackId) {
-  return "https://api.soundcloud.com/tracks/" + trackId.toString()
-}

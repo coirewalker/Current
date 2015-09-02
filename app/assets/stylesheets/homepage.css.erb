@@ -1,0 +1,177 @@
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
+
+/** slideshow body CSS **/
+body{
+  min-height: 96.7vh;
+  margin-left: 0;
+  padding: 0;
+  background-color: black;
+  font-family: "helvetica neue", helvetica;
+  font-weight: 400;
+  font-size: 15px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+ video#bgvid {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	min-width: 100%;
+	min-height: 100%;
+	width: auto;
+	height: auto;
+	z-index: -100;
+	-webkit-transform: translateX(-50%) translateY(-50%);
+	transform: translateX(-50%) translateY(-50%);
+	background: url(<%= asset_path 'bg-image.jpg' %>) no-repeat;
+	background-size: cover;
+	opacity: .8;
+}
+
+h1, h2, h3, h4, h5, p {
+  color: white;
+  text-shadow: 0px 1px 4px rgba(000,000,000, 1);
+}
+
+h1, h2, {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+}
+
+h3, h4, h5, p {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 100;
+}
+
+ul, li {
+  padding: 0;
+}
+
+p {
+   text-align: center;
+ }
+
+/* ============ HOMEPAGE ===========*/
+
+#homepage_container {
+  width: 60%;
+	padding-top: 170px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#homepage_logo_container, #welcome_container {
+  width: 70%;
+  margin: 0 auto;
+}
+
+#pitch_container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+#logo {
+  background: url(<%= asset_path 'current-logo-grey.png' %>) no-repeat center;
+  background-size: contain;
+  height: 155px;
+  width: 80%;
+  margin: 0px auto;
+  z-index: 99;
+  opacity: 1;
+}
+
+#current-sponsors-container {
+  position: fixed;
+  top: 15px;
+  right: 30px;
+  width: 10%;
+  height: 40px;
+  opacity: .8;
+  z-index: 9999;
+}
+
+#current-sponsors-image {
+  background: url(<%= asset_path 'current-sponsors.png' %>) no-repeat center;
+  background-size: contain;
+  height: 100%;
+  width: 100%;
+  z-index: 9999;
+}
+
+#welcome {
+	margin-top: 0%;
+	margin-left: auto;
+	margin-right: auto;
+  margin-bottom: 45px;
+	text-align: center;
+}
+
+#welcome h2 {
+  margin-top: 0;
+  margin-bottom: 85px;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  text-shadow: 0px 1px 4px rgba(000,000,000, .4);
+}
+
+#pitch {
+  text-align: center;
+  font-family: 'Lato 300', sans-serif;
+  color: white;
+}
+
+#bg-img {
+  background: url(<%= asset_path 'bg-image.jpg' %>) no-repeat center;
+  margin: 0;
+  width: 1600px;
+  height: 700px;
+  z-index: 97;
+  opacity: 1;
+}
+
+.submit_button_home {
+  margin-top: 20px;
+  padding: 5px 16px;
+  border: 2px solid white !important;
+  border-radius: 100px;
+  font-family: 'Lato 100', sans-serif;
+  font-weight: 100;
+  font-size: 2.1em;
+  color: white !important;
+  background: none !important;
+  box-shadow: 0px 1px 4px rgba(000,000,000, .4);
+  text-shadow: 0px 1px 4px rgba(000,000,000, .4);
+}
+
+.submit_button_home:hover {
+  border: 2px solid #FE2E64 !important;
+  color: #FE2E64 !important;
+  text-shadow: none;
+  background: none !important;
+  -webkit-opacity: 1;
+  -moz-opacity: 1;
+  opacity: 1;
+  -webkit-transition: all 300ms ease-in;
+    -moz-transition: all 300ms ease-in;
+    -ms-transition: all 300ms ease-in;
+    -o-transition: all 300ms ease-in;
+    transition: all 300ms ease-in;  
+}
+
+.submit_field {
+  width: 50%;
+  font-size: 1.4em;
+  padding: 6px;
+  text-align: center;
+  color: white;
+  background-color: rgba(000,000,000, 0);
+  border: 1px solid white;
+  border-radius: 3px;
+  box-shadow: 0px 1px 4px rgba(000,000,000, .4);
+}
