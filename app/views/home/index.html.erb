@@ -5,23 +5,29 @@
 <%= video_tag("current-homepage-480p.mp4", width: "400", id: "bgvid", autoplay: true, loop: true) %>
 
 <div id="homepage_container">
+
 	<div id="homepage_logo_container">
 		<div id="logo"></div>
 	</div>
+
 	<div id="welcome_container">
+
 		<div id="welcome">
 			<h2>live, local, artist radio.</h2>  
 			<br>	
+
 			<%= form_tag(show_path) do %>
 				<%= text_field_tag :users_zip, nil, :placeholder => "enter your zipcode", class: "submit_field", required: true, minlength: 5, maxlength: 5 %>
 				<p></p>
 				<%= submit_tag "listen", class: "submit_button_home" %>
 			<% end %>
-		</div>
-	</div>
+		</div><!-- /#welcome -->
+
+	</div><!-- /#welcome-container -->
 	<br>
+
 		<div id="pitch_container">
-			<div id="pitch"><h3>Current streams music from artists performing in your neighborhood, tonight!</h3>
-			</div>
+			<div id="pitch"><h3>Current streams music from artists performing in your neighborhood, tonight!</h3></div>
 		</div>
-</div>
+
+</div><!-- /#homepage-container -->
