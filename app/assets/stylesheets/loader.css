@@ -43,7 +43,6 @@
     border: 3px solid transparent;
     border-top-color: #FE2E64;
     opacity: .6;
-
     -webkit-animation: spin 3s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
     animation: spin 3s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
 }
@@ -59,7 +58,6 @@
     border: 3px solid transparent;
     border-top-color: #FE2E64;
     opacity: .3;
-
     -webkit-animation: spin 1.5s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
       animation: spin 1.5s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
 }

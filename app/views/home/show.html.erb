@@ -1,45 +1,57 @@
 <div id="loader-wrapper"><!-- preloader -->
 	<div id="loader"></div>
-<!-- 	<div id="wait"><h4>Current is finding local music for you...</h4></div> -->
 	<div class="loader-section section-left"></div>
   <div class="loader-section section-right"></div>
-</div><!-- end preloader -->
-
-<!-- <div id="image_link" data-image-url="<%#= image_url 'image2.jpg' %>" ></div> -->
+</div><!-- /#loader-wrapper -->
 
 <div id="dots"><!-- pixel grid overlay div -->
- <div class="container">
-	<ul class="slideshow">
-	  <li><span></span></li>
-	  <li><span></span></li>
-	  <li><span></span></li>
-	  <li><span></span></li>
-	  <li><span></span></li>
-	  <li><span></span></li>
-	</ul>
-</div>
-</div><!-- end grid -->
+	
+	<div class="container">
+
+		<ul class="slideshow">
+		  <li><span></span></li>
+		  <li><span></span></li>
+		  <li><span></span></li>
+		  <li><span></span></li>
+		  <li><span></span></li>
+		  <li><span></span></li>
+		</ul>
+
+	</div><!-- /.container -->
+
+</div><!-- /#dots -->
+
+
 <%= render "ball" %>
+
+
 <footer>
+
 	<div id="show_venue"></div>
+	<div id="next_artist"></div>
 
 	<div id="footer_container">
-		<div id="soundcloud_container"><!-- soundcloud container -->
+
+		<div id="soundcloud_container">
 			<iframe id="soundcloud_widget" 
 	    src="http://w.soundcloud.com/player/?url=https://api.soundcloud.com/tracks/111111&show_artwork=false&liking=false&sharing=false&auto_play=true&visual=false&color=FE2E64" 
 	    width="100%" 
 	    height="100%" 
 	    frameborder="no"
 	   ></iframe>
-	  </div><!-- end soundcloud container --> 
+	  </div><!-- /#soundcloud_container --> 
+
 		<div id="logo_container">
 			<div id="logo_show"></div>
 			<h4>live, local, artist radio</h4>
 		</div>
+
 		<div id="submit_container_show">
+
 			<div id="current-sponsors-container-show">
 				<div id="current-sponsors-image"></div>
 			</div>
+
 			<%= form_tag(show_path) do %>
 				<ul>
 					<li>
@@ -50,11 +62,16 @@
 					</li>
 				</ul>
 			<% end %>
-		</div><!-- end submit_container_show -->
-	</div><!-- end footer_container -->
+
+		</div><!-- /#submit_container_show -->
+
+	</div><!-- /#footer_container -->
+
 </footer>
 
-<!-- Soundcloud Player JS -->
+
+
+
 <script>
 	var eventsList = <%= raw @events.to_json %>
 
@@ -67,33 +84,27 @@
 		playTrack(tracker);
 	});
 
-
 	function getNextArtist(){
 		var nextArtist = tracker.currentArtist + 1; // Next artist
 		var nextVenue = tracker.currentVenue; // Same venue. We only change it if it's the last artist
 		if(nextArtist >= eventsList[tracker.currentVenue].artists.length){
-			
 			nextVenue++;
 			if(nextVenue >= eventsList.length){ // Check if it's the last venue, and if it is, go back to the beginning
 				nextVenue = 0;
 			}
-			
 			nextArtist = 0; // Since we changed the venue, we set the artist automatically to zero.
 		}
-
 		// Set the tracker to the new indexes
 		tracker = {
 			currentVenue: nextVenue, 
 			currentArtist: nextArtist
 		};
-
 		// Now that we've updated our indexes, we need to check if the current 
 		// artist has a song assigned to it, and if not, advance to the next...
 		var song = eventsList[nextVenue].artists[nextArtist].song;
 		if(!song.soundcloud_id){
 			getNextArtist(); // recursion...
 		}
-
 	}
 
 	function updateVenueInfo(venue) {
@@ -101,7 +112,14 @@
 		console.log("Playing at: " + venue);
 	}
 
+	// next venue
+	// function nextVenueInfo(nextArtist) {
+	// 	document.getElementById('next_artist').innerHTML = "Next Artist: " + nextArtist;
+	// 	console.log("Next Artist: " + nextArtist);
+	// }
+
 	function playTrack(tracker) {
+		// var nextArtist = eventsList[tracker.currentArtist +1];
 		var venue = eventsList[tracker.currentVenue].venue;
 		var song = eventsList[tracker.currentVenue].artists[tracker.currentArtist].song;
 		widget.load("https://api.soundcloud.com/tracks/" + song.soundcloud_id, {
@@ -111,7 +129,31 @@
 			sharing: false
 		});
 		updateVenueInfo(venue.name);
+		// nextVenueInfo(nextArtist.artist_name);
 	}
 
 	playTrack(tracker);
+
+
+	
 </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
