@@ -1,4 +1,4 @@
-Now called "Current".  This is a personal project of mine designed to address the difficulties of discovering good live, local music.  Current is an internet radio that creates playlists entirely from artists performing near your zipcode within a 24hr period.  Current searches events from venues within 10 miles of your zipcode using the Jambase API, finds those  perfoming artists and selects songs from them.  One song from each artist is then sent to the Soundcloud API for playlist creation and streaming.  
+This is a personal project of mine designed to address the difficulties of discovering good live, local music.  Current is an internet radio that creates playlists entirely from artists performing near your zipcode within a 24hr period.  Current searches events from venues within 10 miles of your zipcode using the Jambase API, finds those  perfoming artists and selects songs from them.  One song from each artist is then sent to the Soundcloud API for playlist creation and streaming.  
 
 Future iterations will include international zipcode search, gMaps integration, customizable radius and user profile analytics.  Enjoy!  
 
