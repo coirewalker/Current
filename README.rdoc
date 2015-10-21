@@ -5,7 +5,7 @@ Future iterations will include international zipcode search, gMaps integration, 
 
 SETUP, THOUGHTS ETC:
 
-- Enter your zipcode in the text field.  Current searches local music venues within 8 miles of you zip code for artists scheduled within 24hrs.  If you don't get any results try a different zip code.  
+- Enter your zipcode in the text field.  Current searches local music venues within 8 miles of your zip code for artists scheduled within 24hrs.  If you don't get any results try a different zip code.  
 
 - Autoplay is disabled on mobile (a caveat of the soundcloud widget API).
 

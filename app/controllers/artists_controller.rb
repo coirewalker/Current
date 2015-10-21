@@ -1,3 +1,3 @@
-	class ArtistsController < ActionController::Base
+class ArtistsController < ActionController::Base
 
 end
