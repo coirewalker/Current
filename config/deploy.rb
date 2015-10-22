@@ -1,7 +1,7 @@
 # config valid only for Capistrano 3.4
 lock '3.4.0'
 
-set :application, 'fourforty'
+set :application, 'current'
 set :repo_url, 'git@github.com:coirewalker/Current.git'
 
 # Default branch is :master
