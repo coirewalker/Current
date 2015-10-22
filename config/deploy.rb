@@ -1,8 +1,8 @@
 # config valid only for Capistrano 3.4
 lock '3.4.0'
 
-set :application, 'current'
-set :repo_url, 'git@github.com:coirewalker/Current.git'
+set :application, 'fourforty'
+set :repo_url, 'https://github.com/coirewalker/Current'
 
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
