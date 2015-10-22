@@ -15,7 +15,7 @@
 # server list. The second argument is a, or duck-types, Hash and is
 # used to set extended properties on the server.
 
-server '54.209.198.223', user: 'ubuntu', roles: %w{web app db}#, my_property: :my_value
+server '52.22.61.190', user: 'ubuntu', roles: %w{web app db}#, my_property: :my_value
 
 set :rails_env, 'production'                  # If the environment differs from the stage name
 # set :migration_role, 'migrator'            # Defaults to 'db'
