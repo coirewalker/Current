@@ -2,7 +2,7 @@
 lock '3.4.0'
 
 set :application, 'fourforty'
-set :repo_url, 'https://github.com/coirewalker/Current'
+set :repo_url, 'git@github.com:coirewalker/Current.git'
 
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
