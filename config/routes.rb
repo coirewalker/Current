@@ -12,5 +12,4 @@ Rails.application.routes.draw do
   get '/show/:users_zip', to: 'home#show', as: 'show_zip'
   post '/show', to: 'home#zip'
   
-
 end
