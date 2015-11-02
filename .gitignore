@@ -16,3 +16,7 @@
 !/log/.keep
 /tmp
 public/*
+
+#Ignore the sensitive deployment data for Puma, Nginx and Capistrano.
+/config/database.yml
+/config/application.yml 
