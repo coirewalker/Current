@@ -36,7 +36,7 @@ At the "JamBase Developer Network Application Registration" form, please provide
 When you have completed this form click the button **"Issue a new key for Jambase V3 API"**, agree to the terms of service, and register your application.
 
 
-##LOCAL CONFIGURATION:
+##LOCAL CONFIGURATION
 
 1. Add your Jambase API key to **jam_base.rb**.  Please remove my key and add your own.  It should look like this: 
 	
@@ -60,7 +60,7 @@ When you have completed this form click the button **"Issue a new key for Jambas
 6. Migrate your database: `$ rake db:migrate`
 
 
-##THINGS TO KNOW AS A USER AND/OR CONTRIBUTOR:
+##THINGS TO KNOW AS A USER AND/OR CONTRIBUTOR
 - Enter your zipcode in the text field.  Current searches local music venues within 8 miles of your zip code for artists scheduled within 24hrs.  If you don't get any results try a different zip code.  
 
 - Autoplay is disabled on mobile (a caveat of the soundcloud widget API).
