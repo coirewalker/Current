@@ -1,0 +1,171 @@
+#show_bg {
+  background: url(<%= asset_path 'image3.jpg' %>) no-repeat;
+  background-size: cover;
+  display: none;
+}
+
+#show_venue, #next_artist {
+  margin-left: 3%;
+  margin-top: 15px;
+  color: white;  
+  font-family: 'Raleway', sans-serif;
+  font-weight: 100;
+  font-size: 1em;
+}
+
+.submit_button_show {
+  padding: 6px 8px;
+  margin-top: 10px;
+  text-align: center;
+  border: 1px solid white !important;
+  border-radius: 100px;
+  font-family: 'Lato 100', sans-serif;
+  font-weight: 100;
+  font-size: .9em;
+  color: white !important;
+  background: none !important;
+}
+
+.submit_button_show:hover {
+  border: 1px solid #FE2E64 !important;
+  color: #FE2E64 !important;
+  text-shadow: none;
+  box-shadow: none;
+  background: none !important;
+  -webkit-opacity: 1;
+  -moz-opacity: 1;
+  opacity: 1;
+  -webkit-transition: all 300ms ease-in;
+    -moz-transition: all 300ms ease-in;
+    -ms-transition: all 300ms ease-in;
+    -o-transition: all 300ms ease-in;
+    transition: all 300ms ease-in;  
+}
+
+.submit_field_show {
+  font-size: .8em;
+  padding: 3px;
+  text-align: center;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid white;
+  border-radius: 3px;
+}
+
+.submit_field:hover, .submit_field_show:hover {
+  border: 1px solid #FE2E64;
+}
+
+.submit_field:focus, .submit_field_show:focus {
+  border: 1px solid #FE2E64;
+}
+
+#logo_container h4 {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+#logo_show {
+  background: url(<%= asset_path 'current-logo.png' %>) no-repeat center;
+  background-size: contain;
+  height: 120px;
+}
+
+#logo_show_load {
+  background: url(<%= asset_path 'current-logo.png' %>) no-repeat center;
+  background-size: contain;
+  height: 35px;
+}
+
+#slogan {
+  position: relative;
+  bottom: 10px;
+  text-align: center;
+}
+
+#slogan h4 {
+  margin: 0;
+  padding: 0;
+}
+
+#now-playing {
+  z-index: 9999;
+  margin: 0 auto;
+}
+
+/*======== containers SHOW ======*/ 
+#soundcloud_container {
+  width: 27%;
+  height: 100px;
+  float: left;
+  margin-top: 15px;
+  padding-top: 0;
+  margin-left: 3%;
+  z-index: 9999;
+}
+
+#soundcloud_widget {
+  margin: 0;
+  padding-top: 0;
+}
+
+#logo_container {
+  width: 25%;
+  float: left;
+  margin-left: 8%;
+  padding-bottom: 15px;
+}
+
+#logo_container h4 {
+  margin-top: -25px;
+}
+
+#submit_container_show {
+  width: 20%;
+  float: left;
+  margin-top: 35px;
+  padding-bottom: 35px;
+  margin-left: 8%;
+}
+
+#submit_container_show ul {
+  text-align: center;
+  list-style-type: none !important;
+}
+
+#current-sponsors-container-show {
+  width: 100%;
+  height: 35px;
+  margin-top: -35px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 7px;
+  opacity: .8;
+  z-index: 9999;
+}
+
+#footer_container {
+  height: 140px;
+  width: 100%;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 140px;  
+  padding-bottom: 35px; 
+  z-index: 98;
+  background: rgba(215, 44, 72, 1);
+  /** footer gradient **/
+      background: rgba(0,0,0,1);
+    background: -moz-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.96) 9%, rgba(0,0,0,0.85) 55%, rgba(0,0,0,0.71) 85%, rgba(0,0,0,0.58) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(0,0,0,1)), color-stop(9%, rgba(0,0,0,0.96)), color-stop(55%, rgba(0,0,0,0.85)), color-stop(85%, rgba(0,0,0,0.71)), color-stop(100%, rgba(0,0,0,0.58)));
+    background: -webkit-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.96) 9%, rgba(0,0,0,0.85) 55%, rgba(0,0,0,0.71) 85%, rgba(0,0,0,0.58) 100%);
+    background: -o-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.96) 9%, rgba(0,0,0,0.85) 55%, rgba(0,0,0,0.71) 85%, rgba(0,0,0,0.58) 100%);
+    background: -ms-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.96) 9%, rgba(0,0,0,0.85) 55%, rgba(0,0,0,0.71) 85%, rgba(0,0,0,0.58) 100%);
+    background: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.96) 9%, rgba(0,0,0,0.85) 55%, rgba(0,0,0,0.71) 85%, rgba(0,0,0,0.58) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000', GradientType=0 );
+    }
+

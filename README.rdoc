@@ -7,14 +7,11 @@ Cheers!
 
 Clone this repo.  
 
-
 ##OBTAIN YOUR API KEYS  
 In order to develop for this app you will need two API keys, one from JamBase and one from Soundcloud.  
 
 ###Registering with Soundcloud:  
 Soundcloud requires you to register an app with them before receiving an API key--do that [here](http://soundcloud.com/you/apps/new).  Please name your app **"current-github-YOUR-GITHUB-USERNAME"**.  
-
-
 
 
 ###Registering with JamBase:  
@@ -63,7 +60,6 @@ When you have completed this form click the button **"Issue a new key for Jambas
 6. Migrate your database: `$ rake db:migrate`
 
 
-
 ##THINGS TO KNOW AS A USER AND/OR CONTRIBUTOR:
 - Enter your zipcode in the text field.  Current searches local music venues within 8 miles of your zip code for artists scheduled within 24hrs.  If you don't get any results try a different zip code.  
 
@@ -75,4 +71,3 @@ When you have completed this form click the button **"Issue a new key for Jambas
 
 - To improve CPU on desktop devices scale the browser window to eliminate slideshow view.
 
-   
